@@ -324,7 +324,10 @@ strong { font-weight: 600; color: var(--ink); }
 .frame .app__body { min-height: 0; grid-template-columns: 1fr; }
 .msg { background: #fff; border-radius: 12px 12px 12px 2px; padding: .55rem .75rem; max-width: 85%; box-shadow: var(--shadow-sm); }
 .msg + .msg { margin-top: .5rem; margin-left: auto; border-radius: 12px 12px 2px 12px; background: var(--olive); color: #fff; }
-.msg small { display: block; font-size: .66rem; opacity: .7; margin-top: .2rem; }
+.msg small { display: block; font-size: .66rem; color: var(--ink-2); margin-top: .2rem; }
+.msg + .msg small { color: rgba(255,255,255,.85); }
+.card--forest .msg, .section--dark .msg { color: var(--ink); }
+.card--forest .msg + .msg, .section--dark .msg + .msg { color: #fff; }
 
 .checks { list-style: none; padding: 0; display: grid; gap: .6rem; }
 .checks li { display: flex; gap: .7rem; align-items: flex-start; }
