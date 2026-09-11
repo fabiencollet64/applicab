@@ -38,12 +38,18 @@ ICONS = {
   "logo": '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c6 0 9 9 11.5 17 3.8 11-2.9 21-11.5 21S8.7 32 12.5 21C15 13 18 4 24 4z" fill="#5B7A1F"/><path d="M24 4c6 0 9 9 11.5 17L24 24z" fill="#DCCB4F"/><path d="M12.5 21C15 13 18 4 24 4v20z" fill="#3D5516"/><path d="M24 24l11.5-3c3.8 11-2.9 21-11.5 21z" fill="#A9C24A"/><ellipse cx="24" cy="30" rx="5.5" ry="6.4" fill="#A4492F"/></svg>',
 }
 
+import hashlib
+def _v(path):
+    return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()[:8]
+ASSET_V = {"css": _v("assets/css/main.css"), "js": _v("assets/js/main.js")}
+
 def render(name, out, root):
     tpl = (SRC / "pages" / name).read_text(encoding="utf-8")
     parts = {p.stem: (SRC / "partials" / p.name).read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}
     def sub(s):
         s = re.sub(r"\{\{partial:(\w+)\}\}", lambda m: parts[m.group(1)], s)
         s = re.sub(r"\{\{icon:(\w+)\}\}", lambda m: ICONS[m.group(1)], s)
+        s = s.replace("{{v:css}}", ASSET_V["css"]).replace("{{v:js}}", ASSET_V["js"])
         return s.replace("{{root}}", root)
     html = sub(sub(tpl))
     (ROOT / out).write_text(html, encoding="utf-8")
