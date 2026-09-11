@@ -152,6 +152,44 @@
     });
   });
 
+  /* --- Panneau d'accessibilité : classes a11y-* sur <html>, mémorisées ------ */
+  var a11y = d.querySelector('.a11y');
+  if (a11y) {
+    var KEY = 'applicab-a11y', root = d.documentElement;
+    var abtn = a11y.querySelector('.a11y__btn'), apanel = a11y.querySelector('.a11y__panel');
+    function prefs() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
+    function save(list) { try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
+    function apply(list) {
+      ['contrast','font','spacing','links','motion','text-lg','text-xl'].forEach(function (k) { root.classList.toggle('a11y-' + k, list.indexOf(k) > -1); });
+      if (list.indexOf('font') > -1 && !d.getElementById('a11y-font-link')) {
+        var l = d.createElement('link'); l.id = 'a11y-font-link'; l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap'; d.head.appendChild(l);
+      }
+      a11y.querySelectorAll('[data-a11y]').forEach(function (c) { c.checked = list.indexOf(c.dataset.a11y) > -1; });
+      var size = list.indexOf('text-xl') > -1 ? 'text-xl' : list.indexOf('text-lg') > -1 ? 'text-lg' : '';
+      a11y.querySelectorAll('[name="a11y-size"]').forEach(function (r) { r.checked = r.value === size; });
+    }
+    apply(prefs());
+    abtn.addEventListener('click', function () {
+      var open = apanel.dataset.open === 'true';
+      apanel.dataset.open = String(!open); abtn.setAttribute('aria-expanded', String(!open));
+      if (!open) apanel.querySelector('input').focus();
+    });
+    a11y.addEventListener('change', function (e) {
+      var list = prefs().filter(function (k) { return k !== 'text-lg' && k !== 'text-xl'; });
+      a11y.querySelectorAll('[data-a11y]').forEach(function (c) {
+        list = list.filter(function (k) { return k !== c.dataset.a11y; });
+        if (c.checked) list.push(c.dataset.a11y);
+      });
+      var size = a11y.querySelector('[name="a11y-size"]:checked');
+      if (size && size.value) list.push(size.value);
+      save(list); apply(list);
+    });
+    a11y.querySelector('[data-a11y-reset]').addEventListener('click', function () { save([]); apply([]); });
+    d.addEventListener('click', function (e) { if (!e.target.closest('.a11y')) { apanel.dataset.open = 'false'; abtn.setAttribute('aria-expanded', 'false'); } });
+    d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && apanel.dataset.open === 'true') { apanel.dataset.open = 'false'; abtn.setAttribute('aria-expanded', 'false'); abtn.focus(); } });
+  }
+
   /* --- Newsletter (maquette : aucun envoi) --------------------------------- */
   var form = d.querySelector('.newsletter form');
   if (form) form.addEventListener('submit', function (e) {

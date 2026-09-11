@@ -51,5 +51,29 @@
       <a class="btn btn--ghost btn--sm" href="https://app.applicab-avocats.com" rel="noopener">Se connecter</a>
       <a class="btn btn--primary btn--sm" href="#essai">Découvrir AppliCab gratuitement {{icon:arrow}}</a>
     </div>
+    <div class="a11y">
+      <button class="a11y__btn" type="button" aria-expanded="false" aria-controls="a11y-panel" aria-label="Préférences d'accessibilité"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8" fill="currentColor" stroke="none"/><path d="M4 9.5c2.7.7 5.3 1 8 1s5.3-.3 8-1M12 10.5v4l-3 6M12 14.5l3 6"/></svg><span aria-hidden="true">Accessibilité</span></button>
+      <div class="a11y__panel" id="a11y-panel" data-open="false" role="group" aria-labelledby="a11y-title">
+        <h2 id="a11y-title">Accessibilité</h2>
+        <p>Vos réglages sont mémorisés sur cet appareil.</p>
+        <fieldset>
+          <legend>Affichage</legend>
+          <label class="a11y__row"><input type="checkbox" data-a11y="contrast"> Contraste renforcé</label>
+          <label class="a11y__row"><input type="checkbox" data-a11y="font"> Police plus lisible</label>
+          <label class="a11y__row"><input type="checkbox" data-a11y="spacing"> Espacer le texte</label>
+          <label class="a11y__row"><input type="checkbox" data-a11y="links"> Souligner tous les liens</label>
+          <label class="a11y__row"><input type="checkbox" data-a11y="motion"> Arrêter les animations</label>
+        </fieldset>
+        <fieldset>
+          <legend>Taille du texte</legend>
+          <div class="a11y__sizes">
+            <label><input type="radio" name="a11y-size" value="" checked> A</label>
+            <label><input type="radio" name="a11y-size" value="text-lg"> A+</label>
+            <label><input type="radio" name="a11y-size" value="text-xl"> A++</label>
+          </div>
+        </fieldset>
+        <button class="btn btn--ghost btn--sm a11y__reset" type="button" data-a11y-reset>Réinitialiser</button>
+      </div>
+    </div>
   </div>
 </header>

@@ -153,11 +153,39 @@ internes des articles actuels sont conservés ; seul l'habillage change.
 - Animations en `transform`/`opacity` uniquement (compositeur), `IntersectionObserver`, `prefers-reduced-motion`.
 - Polices auto-hébergées, 2 familles, 6 fichiers max ; images `width`/`height`, `loading="lazy"` sauf LCP.
 
-## 6. Accessibilité
+## 6. Accessibilité et RGAA
 
-- Contrastes AA, `:focus-visible` à fort contraste, lien d'évitement, `aria-current`, `aria-expanded` sur menus et
-  méga-menus (clic/clavier, Échap ferme), onglets ARIA (`role="tablist"`, flèches gauche/droite), mockups en `aria-hidden`
-  avec `role="img"` + `aria-label` pour la scène du hero, tableaux avec `caption`/`scope`, formulaire avec `label` et `aria-live`.
+**État de la maquette.** Elle applique les critères RGAA 4.1 vérifiables sur un prototype statique : contrastes
+AA (≥ 4,5:1 texte courant, ≥ 3:1 grands textes, textes secondaires sur fond sombre ≥ 11:1), un seul H1 et
+hiérarchie de titres, landmarks (`header`, `nav` nommées, `main`, `footer`), lien d'évitement, focus visible
+(`:focus-visible` 3 px), `aria-expanded` / `aria-controls` sur menu mobile, méga-menus et panneau d'accessibilité,
+onglets ARIA pilotables au clavier, mockups en `aria-hidden` avec alternative textuelle, tableaux avec `caption` et
+`scope`, formulaire avec `label` et `aria-live`, `<details>` natifs pour la FAQ, `prefers-reduced-motion`,
+zoom 200 % sans perte, aucun contenu clé porté par la seule couleur.
+
+**Ce qu'elle ne peut pas garantir.** Le RGAA se vérifie sur un site en production (106 critères, 13 thématiques),
+pas sur une maquette. Restent à traiter au portage WordPress : alternatives des vraies images, titres de pages
+uniques, langue des passages étrangers, tests lecteur d'écran (NVDA, VoiceOver), navigation clavier sur les
+menus WordPress, contraste des contenus saisis par le client dans Gutenberg (à verrouiller via `theme.json`), formulaires
+réels (erreurs, aide à la saisie), vidéos sous-titrées avec transcription, et la **déclaration d'accessibilité**
+(obligatoire pour les organismes publics et les entreprises de plus de 250 M€ de CA ; recommandée sinon).
+Un audit RGAA par un tiers avant mise en ligne est le seul moyen d'afficher un taux de conformité.
+
+**Panneau « Accessibilité » (en-tête).** Préférences mémorisées dans `localStorage`, appliquées avant le premier rendu
+par un script inline de 300 octets dans `<head>` (pas de flash), matérialisées par des classes `a11y-*` sur `<html>` :
+
+| Réglage | Classe | Effet |
+|---|---|---|
+| Contraste renforcé | `a11y-contrast` | Encre noire, filets foncés, sections sombres en noir pur, fonds pâles en blanc, texte en dégradé remplacé par un aplat, liens soulignés, focus 4 px |
+| Police plus lisible | `a11y-font` | Lexend (conçue pour la lisibilité), chargée uniquement à l'activation |
+| Espacer le texte | `a11y-spacing` | Interligne 1,85, interlettrage 0,04 em, inter-mots 0,16 em (WCAG 1.4.12) |
+| Souligner les liens | `a11y-links` | Tous les liens soulignés à 2 px |
+| Arrêter les animations | `a11y-motion` | Aucune animation ni transition, marquee figé, onglets sans rotation (WCAG 2.2.2) |
+| Taille du texte | `a11y-text-lg` / `a11y-text-xl` | 112,5 % / 125 % de la taille de base, titres du hero plafonnés |
+
+Dans le thème WordPress, le panneau devient `template-parts/a11y-panel.php` inclus par `header.php` ; le CSS et le JS
+sont repris tels quels. Il complète les réglages du système (il ne remplace pas `prefers-reduced-motion` ni le zoom
+navigateur) et n'utilise aucune surcouche tierce.
 
 ## 7. Éléments à fournir / arbitrer côté client
 
