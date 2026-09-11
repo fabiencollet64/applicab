@@ -27,7 +27,8 @@
 ## Pages clés
 
 - [Accueil](https://applicab-avocats.com/) : présentation, méthode pour digitaliser un cabinet, histoire, tarifs, FAQ.
-- [Fonctionnalités et tarifs](https://applicab-avocats.com/fonctionnalites-tarifs/) : détail des six fonctions, cas d'usage, comparatif avec les autres solutions, tarifs, FAQ.
+- [Fonctionnalités](https://applicab-avocats.com/fonctionnalites/) : détail des six fonctions (dossiers, agenda, espace client, messagerie, pilotage, sécurité), cas d'usage, comparatif avec les autres solutions, FAQ.
+- [Tarifs](https://applicab-avocats.com/tarifs/) : 59 € HT/mois standard, 39 € HT/mois jeune avocat pendant 12 mois, conditions, FAQ tarifs.
 - [Blog](https://applicab-avocats.com/blog/) : organisation du cabinet, facturation et impayés, indicateurs, innovation.
 - [Contact](https://applicab-avocats.com/#contact) : contact@applicab-avocats.com
 

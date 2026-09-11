@@ -1,4 +1,4 @@
-# Note technique — Refonte AppliCab Avocats
+# Note technique — Refonte AppliCab Avocats (v2, direction SaaS)
 
 Maquette codée haute-fidélité (HTML/CSS/JS sans dépendance) destinée à la présentation client,
 puis au portage dans un **thème WordPress sur-mesure** (PHP + Gutenberg, sans page builder).
@@ -8,116 +8,160 @@ Pages livrées :
 | Page | Fichier | Template WordPress cible |
 |---|---|---|
 | Accueil | `index.html` | `front-page.php` |
-| Fonctionnalités & tarifs | `fonctionnalites-tarifs.html` | `page-fonctionnalites.php` (ou `page.php` + blocs) |
+| Fonctionnalités | `fonctionnalites.html` | `page-fonctionnalites.php` |
+| Tarifs | `tarifs.html` | `page-tarifs.php` |
 | Article de blog | `blog/article.html` | `single.php` |
-| Fichier IA génératives | `llms.txt` | fichier statique à la racine (ou route `rewrite` WP) |
+| Fichier IA génératives | `llms.txt` | fichier statique à la racine |
 
-## 1. Direction artistique appliquée
+Les pages sont assemblées depuis `src/pages/*.html` et `src/partials/*.html` par `python3 src/build.py`
+(le découpage en partials préfigure `header.php` / `footer.php` / `template-parts/`).
 
-- **Palette** conservée du site actuel et resserrée en tokens (`assets/css/main.css`, section 1) :
-  sable `#F1ECE2`, brun titre `#46392E`, olive `#5B7A1F`, olive profond `#3D5516`, vert clair `#A9C24A`,
-  jaune avocat `#DCCB4F` (accent rare), terre cuite `#A4492F` (illustration uniquement).
-  Tous les couples texte/fond utilisés respectent le niveau AA (olive sur blanc : 4,9:1 ; blanc sur olive profond : 9,8:1).
-- **Typographie** : Martel 700/800 pour les titres (continuité avec le serif actuel, échelle plus affirmée),
-  Poppins 400/500/600 pour le corps. Échelle fluide via `clamp()`.
-- **Grilles** : bento 12 colonnes (`.bento`, `.span-*`), en-têtes de section asymétriques (`.section-head--split`),
-  frise horizontale, tableau comparatif, FAQ en `<details>` natifs.
-- **Micro-interactions** : en-tête collant avec ombre au défilement, liens fléchés, léger décalage vertical à
-  l'apparition (jamais d'opacité 0 : le contenu reste lisible sans JS et pour les crawlers), `prefers-reduced-motion` respecté.
-- Supprimé par rapport à Divi : ombres portées lourdes, dégradés génériques, icônes par défaut, sliders JS, CSS inline massif.
+## 1. Arborescence proposée
 
-## 2. Découpage WordPress : template PHP fixe vs blocs Gutenberg
+Le site actuel expose une navigation à plat (À propos, Présentation, Fonctionnalités & cas d'usages, Blog, Contact,
+Accès à l'application) qui mélange rubriques éditoriales et produit. L'arborescence proposée reprend les codes des
+sites SaaS (monday.com, Doctrine, Axiocap) : une entrée **Produit**, une entrée par **persona**, une page **Tarifs**
+autonome, une rubrique **Ressources** qui regroupe le contenu SEO.
 
-### 2.1 Éléments communs (PHP fixe)
+```
+/                                   Accueil
+/fonctionnalites/                   Vue d'ensemble produit (6 fonctions, ancres #dossiers #agenda #clients
+                                    #messagerie #pilotage #securite, cas d'usage, comparatif, FAQ)
+/fonctionnalites/<fonction>/        (phase 2) une page par fonction pour le SEO longue traîne
+/vous-etes/avocat-independant/      Pages persona (phase 2) : indépendant, cabinet de plusieurs associés,
+/vous-etes/cabinet/                 jeune avocat, conseil & droit des affaires, contentieux.
+/vous-etes/jeune-avocat/            Dans la maquette, ces entrées pointent vers les ancres de /fonctionnalites/.
+/tarifs/                            Page tarifs (offres, ROI, tableau « tout inclus », FAQ tarifs)
+/blog/                              Liste des articles (catégories : Organisation, Facturation, Pilotage, Innovation…)
+/blog/<slug>/                       Articles existants, **slugs conservés** (aucune redirection à créer)
+/guides/                            Contenus longs téléchargeables (Guide anti-impayés…) — phase 2
+/a-propos/                          Histoire, prix, équipe (aujourd'hui section #histoire de l'accueil)
+/contact/                           Formulaire contact / demande de démo
+/mentions-legales/, /politique-de-cookies/
+/llms.txt, /robots.txt, /sitemap.xml
+```
+
+Navigation principale : Produit ▾ (méga-menu 6 fonctions) · Vous êtes ▾ · Tarifs · Ressources ▾ (Blog, Guides,
+Vidéos, FAQ, Notre histoire) · Contact · **Se connecter** · **Découvrir AppliCab gratuitement** (CTA principal).
+
+Redirections 301 à prévoir depuis les anciennes URLs de rubriques (`/presentation/`, `/fonctionnalites-cas-d-usages/`,
+`/a-propos/`) vers les nouvelles ; les articles ne bougent pas.
+
+## 2. Direction artistique appliquée
+
+- **Palette** : l'identité verte d'AppliCab est conservée mais déplacée vers des codes SaaS : fond blanc dominant,
+  sections alternées sable très pâle `#F6F3EB`, sections d'impact **forêt** `#14210E`, primaire olive `#5B7A1F`,
+  accent **lime** `#B9D94A` (halos, soulignements, boutons sur fond sombre), jaune avocat `#F0DF62` en halo.
+  Tokens dans `assets/css/main.css` § 1 → `theme.json`. Contrastes AA : olive sur blanc 4,9:1, blanc sur forêt 15:1,
+  lime sur forêt 10:1.
+- **Typographie** : Plus Jakarta Sans 700/800 pour les titres (grandes tailles, interlettrage serré, dégradé de
+  couleur sur le mot clé), DM Sans pour le corps. Échelle fluide `clamp()`.
+- **Mockups produit en HTML/CSS** (`.app`, `.steps-ui`, `.agenda`, `.msg`) : aucune image lourde, texte réel donc
+  indexable, et adaptables dans le thème (un bloc « Aperçu produit » avec champs). Dans le hero, l'étape « en cours »
+  se coche en boucle ; des cartes flottantes (rappel envoyé, client connecté, temps gagné) animent la scène.
+- **Animations** : révélations au défilement (`.reveal`, position + opacité, uniquement pour les blocs hors écran au
+  chargement, donc thumbnail et impression complets), onglets produit à rotation automatique avec barre de progression
+  (pause au survol, arrêt au premier clic), compteurs animés, marquee de preuves en CSS, barre de lecture sur les
+  articles, sous-navigation collante sur la page Fonctionnalités. `prefers-reduced-motion` neutralise tout.
+- **Composants SaaS** : hero centré + scène produit, bandeau de preuves, onglets « Que voulez-vous simplifier ? »,
+  bento, bande de chiffres, cartes persona, blocs fonctionnalité alternés texte/mockup, témoignages, tableau
+  « tout inclus », FAQ `<details>`, CTA plein écran, pied de page à cinq colonnes.
+
+## 3. Découpage WordPress : template PHP fixe vs blocs Gutenberg
+
+### 3.1 Éléments communs (PHP fixe)
 
 | Élément | Implémentation |
 |---|---|
-| Bandeau d'annonce | `header.php`, texte + lien + date de fin dans un **groupe d'options ACF** (`options page`), masqué automatiquement après la date. |
-| En-tête + navigation | `header.php`, `wp_nav_menu('principal')`, bouton CTA = dernier item du menu avec la classe `nav-cta` (walker ou filtre `nav_menu_css_class`). Le bouton mobile et le JS de `assets/js/main.js` sont repris tels quels. |
-| Bandeau CTA final | `template-parts/cta-band.php`, contenu (titre, texte, 2 boutons) dans les **options ACF**, réutilisé sur toutes les pages. |
-| Pied de page | `footer.php` : 3 zones de menus (`wp_nav_menu`), formulaire newsletter branché sur le plugin existant (MailPoet/Brevo) via shortcode, mentions © dynamiques. |
-| Fil d'Ariane | `template-parts/breadcrumb.php` + JSON-LD `BreadcrumbList` généré en PHP (ou délégué à Yoast/Rank Math si déjà en place — **ne pas dupliquer**). |
-| `<head>` | `wp_head()` ; `title`/`meta description` gérés par le plugin SEO déjà utilisé sur les articles ; polices **auto-hébergées** dans `assets/fonts/` avec `font-display: swap` et `<link rel="preload">` sur les 2 fichiers critiques. |
+| Bandeau d'annonce | `header.php`, texte + lien + date de fin dans une **page d'options ACF**, masqué après la date. |
+| En-tête + méga-menus | `header.php`, `wp_nav_menu('principal')` avec un walker qui rend les items de niveau 2 en `.mega` (titre, sous-titre et icône via champs ACF sur l'item de menu). Boutons « Se connecter » et CTA : options ACF. JS de `assets/js/main.js` repris tel quel. |
+| Bandeau CTA final | `template-parts/cta-band.php`, contenu dans les options ACF, inséré par tous les templates. |
+| Pied de page | `footer.php` : 4 menus (`wp_nav_menu`), newsletter via le plugin existant (shortcode), réseaux et mentions © depuis les options. |
+| Fil d'Ariane | `template-parts/breadcrumb.php` + JSON-LD `BreadcrumbList` (ou délégué au plugin SEO, sans doublon). |
+| `<head>` | `wp_head()` ; `title`/`meta description` par le plugin SEO ; polices **auto-hébergées** (`assets/fonts/`, `font-display: swap`, `preload` des 2 fichiers critiques). |
 
-### 2.2 Page d'accueil (`front-page.php`)
+### 3.2 Page d'accueil (`front-page.php`)
 
-| Section de la maquette | Type | Détail |
+| Section | Type | Détail |
 |---|---|---|
-| Hero | **PHP fixe + ACF** | Champs : surtitre, titre (H1, avec `<em>` sur la partie mise en avant), chapô, 2 boutons, liste de preuves, badge récompense. La mascotte est un SVG inline dans le template. |
-| Chiffres clés | **Bloc réutilisable `applicab/kpis`** (ACF Block) | Répéteur valeur/libellé, 2 à 4 items, rendu `<dl class="kpis">`. |
-| Réponse directe (GEO) | **Bloc `applicab/reponse`** | Une question (H2) + une réponse courte en texte brut. Rendu `.answer`. Réutilisable sur toute page. |
-| Présentation (bento) | **Bloc `applicab/benefices`** | InnerBlocks avec un bloc enfant `applicab/carte` (icône, titre, texte, liste, lien, variante de couleur, largeur `span-5/7`). |
-| Fonctionnalités + vidéo | **Bloc `applicab/fonctionnalites-apercu`** | Liste à coches (bloc liste natif stylé) + **façade vidéo** : champ « ID YouTube », l'iframe n'est injectée qu'au clic (CWV). |
-| Méthode en 4 étapes | **Bloc `applicab/etapes`** | Répéteur titre/texte, rendu `<ol class="steps">` numéroté par CSS. |
-| Cas d'usage | **Bloc `applicab/cas-usage`** | Même bloc enfant `applicab/carte` sur fond sombre (`.section--dark`). |
-| Notre histoire | **PHP fixe + ACF répéteur** (année, titre, texte, `is_now`) | Rendu `<ol class="timeline">` ; remplace le slider Divi. |
-| Tarifs | **Bloc `applicab/tarifs`** | Les prix sont saisis **une seule fois** dans les options ACF et lus par le bloc (accueil et page tarifs toujours synchronisés) ; le même champ alimente le JSON-LD `offers`. |
-| FAQ | **Bloc `applicab/faq`** | Répéteur question/réponse, rendu `<details>` natifs (texte dans le DOM). Le bloc **génère lui-même le JSON-LD `FAQPage`** à partir de ses champs. |
-| Derniers articles | **PHP fixe** | `WP_Query` 3 derniers articles, `template-parts/post-card.php`. |
+| Hero | **PHP fixe + ACF** | Pilule « Nouveau », titre H1 (mot clé en dégradé via `<span class="grad-text">`), chapô, 2 boutons, liste de preuves. La scène produit est un `template-parts/mockup-full.php` dont les libellés (noms de dossiers, dates) sont des champs ACF pour rester réalistes sans code. |
+| Bandeau de preuves | **Bloc `applicab/preuves`** | Répéteur icône/texte, rendu marquee CSS + liste masquée pour lecteurs d'écran. |
+| Onglets produit | **Bloc `applicab/onglets-produit`** | InnerBlocks : un bloc enfant par onglet (titre, chapô, liste, lien, mockup choisi parmi 5 variantes). Contenu des 5 panneaux dans le DOM. |
+| Pourquoi (bento) | **Bloc `applicab/benefices`** + enfant `applicab/carte` (icône, titre, texte, variante `sand/forest/lime`, largeur `span-4/5/6/7/8`, mini-UI optionnelle). |
+| Réponse directe (GEO) | **Bloc `applicab/reponse`** | Question H2 + réponse en texte brut. |
+| Chiffres | **Bloc `applicab/chiffres`** | Répéteur valeur/unité/libellé, attribut `data-count` pour l'animation. |
+| Vous êtes | **Bloc `applicab/personas`** | Répéteur numéro/titre/texte/lien. |
+| Blocs fonctionnalité | **Bloc `applicab/fonctionnalite`** | Eyebrow, titre, chapô, liste, lien, mockup, option « inversé ». Réutilisé sur la page Fonctionnalités avec `id` d'ancre. |
+| Méthode 4 étapes | **Bloc `applicab/etapes`** | `<ol class="steps">`. |
+| Témoignages | **Bloc `applicab/temoignages`** | CPT `temoignage` ou répéteur (citation, nom, fonction, ville). |
+| Notre histoire | **PHP fixe + répéteur ACF** | Année, titre, texte. |
+| Tarifs | **Bloc `applicab/tarifs`** | Prix saisis **une fois** dans les options ACF, lus par le bloc et par le JSON-LD `offers` (accueil et page Tarifs toujours synchronisés). |
+| FAQ | **Bloc `applicab/faq`** | Répéteur Q/R → `<details>` ; le bloc émet le JSON-LD `FAQPage`. |
+| Derniers articles | **PHP fixe** | `WP_Query` 3 derniers, `template-parts/post-card.php`. |
 
-### 2.3 Page Fonctionnalités & tarifs (`page-fonctionnalites.php` ou `page.php`)
+### 3.3 Page Fonctionnalités (`page-fonctionnalites.php`)
 
-Tout le contenu est composé avec les blocs ci-dessus + :
+En-tête de page en PHP (`the_title`, chapô ACF, 2 boutons), **sous-navigation collante** générée depuis les
+`id` des blocs `applicab/fonctionnalite` de la page, puis blocs : `reponse`, 6 × `fonctionnalite`, `benefices`
+(cas d'usage), **tableau natif Gutenberg** avec style de bloc « Comparatif » (`register_block_style`, colonne
+AppliCab = classe `is-us`), `faq`, CTA.
 
-| Section | Type |
-|---|---|
-| En-tête de page (H1, chapô, boutons) | PHP fixe (`the_title`, champ ACF « chapô ») |
-| Grille des 6 fonctionnalités | Bloc `applicab/fonctionnalite` (enfant de `applicab/benefices`), avec ancre `id` par carte pour le maillage interne |
-| Tableau comparatif | **Bloc tableau natif Gutenberg** + style de bloc « Comparatif » (`register_block_style`) ; la colonne AppliCab reçoit la classe `is-us` via la classe CSS additionnelle du bloc. Aucun contenu en image. |
-| Tarifs, FAQ, CTA | Blocs `applicab/tarifs`, `applicab/faq`, part `cta-band` |
+### 3.4 Page Tarifs (`page-tarifs.php`)
 
-### 2.4 Article de blog (`single.php`)
+Blocs `tarifs`, `fonctionnalite` (bloc ROI, variante carte forêt), tableau natif « Tout inclus », `faq`
+(FAQ tarifs, JSON-LD dédié), CTA. Le bandeau d'augmentation au 1er octobre 2026 lit la même option ACF que
+le bandeau d'annonce.
 
-Objectif : **ne rien perdre du SEO existant**. Les articles actuels sont conservés tels quels (même slug, même `title`,
-même meta description via le plugin SEO, mêmes H2/H3, mêmes liens internes). Seul l'habillage change.
+### 3.5 Article de blog (`single.php`)
+
+Objectif : **ne rien perdre du SEO existant**. Slugs, `title`, meta description (plugin SEO), H2/H3 et liens
+internes des articles actuels sont conservés ; seul l'habillage change.
 
 | Élément | Implémentation |
 |---|---|
-| En-tête | PHP fixe : fil d'Ariane, catégorie principale, `the_title()` en H1, `the_excerpt()` en chapô, auteur, `the_date()`, temps de lecture calculé (`str_word_count / 200`). |
-| Image à la une | `the_post_thumbnail()` avec `sizes`/`srcset` natifs, `loading="eager"` + `fetchpriority="high"` (image LCP), formats WebP/AVIF via `add_theme_support` + plugin d'optimisation. |
-| Sommaire | Généré automatiquement à partir des H2/H3 de `the_content` (filtre PHP ajoutant des `id` + liste), affiché en colonne collante. Désactivable par case ACF. |
-| Corps | `the_content()` : blocs natifs (paragraphe, titres, listes, citation, tableau, image). Styles dans `.prose`. Un **style de bloc « Encart »** sur le bloc Groupe (`callout`, `callout--olive`) pour les CTA contextuels. |
-| Étiquettes, partage, auteur, précédent/suivant | PHP fixe (`the_tags`, `get_the_author_meta`, `previous_post_link`). |
-| Articles liés | `WP_Query` même catégorie, 3 items. |
-| Données structurées | `BlogPosting` + `BreadcrumbList` : déléguées au plugin SEO s'il les émet déjà, sinon générées dans `single.php` sur le modèle du prototype. |
+| Barre de lecture | `div.reading-bar` dans `single.php`, JS existant. |
+| En-tête | Fil d'Ariane, catégorie principale, `the_title()` en H1, `the_excerpt()` en chapô, auteur, date, temps de lecture calculé. |
+| Image à la une | `the_post_thumbnail()` avec `srcset`, `fetchpriority="high"` (LCP), WebP/AVIF. |
+| Sommaire | Généré par filtre PHP depuis les H2/H3 de `the_content` (ajout d'`id`), colonne collante, désactivable. |
+| Corps | `the_content()` en blocs natifs, stylé par `.prose` ; style de bloc « Encart » (Groupe → `callout`, `callout--forest`) pour les CTA contextuels. |
+| Étiquettes, partage, auteur, précédent/suivant, articles liés | PHP fixe. |
+| Données structurées | `BlogPosting` + `BreadcrumbList` : plugin SEO s'il les émet, sinon `single.php`. |
 
-### 2.5 Gutenberg : réglages du thème
+### 3.6 Réglages Gutenberg
 
-- `theme.json` : palette (tokens de la section 1), échelle typographique, espacements, `layout.contentSize = 62ch`,
-  `wideSize = 76rem`, désactivation des couleurs/dégradés personnalisés pour garder la charte.
-- `functions.php` : `add_theme_support('editor-styles')` avec `main.css` chargé dans l'éditeur pour un WYSIWYG fidèle.
-- Blocs `applicab/*` déclarés en **ACF Blocks** (`block.json` + `render.php`), ce qui évite un build JS et reste éditable
-  par le client. Ils sont marqués `"reusable": true` là où le contenu se répète (tarifs, FAQ, CTA).
-- Patterns (`register_block_pattern`) livrés : « Section présentation », « Section fonctionnalités », « FAQ », « Comparatif ».
+- `theme.json` : palette (tokens § 2), échelle typographique, espacements, `contentSize = 64ch`, `wideSize = 78rem`,
+  couleurs personnalisées désactivées.
+- `add_theme_support('editor-styles')` avec `main.css` dans l'éditeur.
+- Blocs `applicab/*` en **ACF Blocks** (`block.json` + `render.php`), pas de build JS ; patterns livrés pour chaque section.
 
-## 3. SEO et GEO
+## 4. SEO et GEO
 
-- Un seul H1 par page, hiérarchie H2/H3 logique, HTML sémantique (`header`, `nav`, `main`, `article`, `section`, `footer`).
-- JSON-LD présent dans le prototype : `Organization`, `WebSite`, `SoftwareApplication` (+ `offers` 59 € / 39 €),
-  `FAQPage`, `BreadcrumbList`, `WebPage`, `BlogPosting`. En production, **une seule source** par type (thème ou plugin SEO).
-- Blocs « réponse directe » (`.answer`) en texte brut, réponses FAQ autonomes et citables, tableau comparatif en HTML.
-- Aucun contenu clé derrière du JS : les `<details>` fermés gardent leur texte dans le DOM.
-- `llms.txt` à la racine (format llmstxt.org) ; `robots.txt` ouvert aux crawlers IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
-  sauf décision contraire du client.
-- Sitemap XML : celui du plugin SEO existant.
+- Un seul H1 par page ; HTML sémantique ; `<details>` fermés gardent leur texte dans le DOM ; onglets : les 5 panneaux
+  sont présents dans le DOM (`display:none` sur les inactifs, contenu crawlable).
+- JSON-LD : `Organization`, `WebSite`, `SoftwareApplication` (+ `offers`), `FAQPage` (accueil, fonctionnalités, tarifs),
+  `BreadcrumbList`, `WebPage`, `BlogPosting`. Une seule source par type en production.
+- Blocs réponse directe : « Quel est le meilleur logiciel de gestion pour un cabinet d'avocats ? », « Comment digitaliser
+  la gestion d'un cabinet d'avocats ? », « Quelles sont les fonctionnalités d'un logiciel de gestion de cabinet ? ».
+- Tableau comparatif générique (tableur / suite bureautique / logiciel métier installé / AppliCab), sans marque.
+- `llms.txt` (format llmstxt.org) et `robots.txt` ouverts aux crawlers IA.
+- Mockups en texte réel : les noms d'étapes et de fonctions sont indexables, contrairement à des captures d'écran.
 
-## 4. Performance (Core Web Vitals)
+## 5. Performance (Core Web Vitals)
 
-- CSS unique (~20 Ko avant minification), pas de framework, pas de jQuery, pas de police icônes (SVG inline).
-- JS de 2 Ko chargé en `defer` ; façade vidéo : aucune ressource YouTube avant le clic.
-- Polices auto-hébergées, `font-display: swap`, 2 graisses Martel + 4 Poppins maximum.
-- Images : `width`/`height` déclarés, `loading="lazy"` sauf image LCP, WebP/AVIF, `srcset`.
-- Aucun CSS inline généré par un builder ; `wp_enqueue_style` avec version hash pour le cache.
+- CSS unique (~30 Ko avant minification), pas de framework ni de jQuery, icônes SVG inline.
+- JS ~4 Ko en `defer` ; aucune ressource tierce avant interaction (façade vidéo).
+- Animations en `transform`/`opacity` uniquement (compositeur), `IntersectionObserver`, `prefers-reduced-motion`.
+- Polices auto-hébergées, 2 familles, 6 fichiers max ; images `width`/`height`, `loading="lazy"` sauf LCP.
 
-## 5. Accessibilité
+## 6. Accessibilité
 
-- Contrastes AA, focus visible (`:focus-visible` bleu à fort contraste), lien d'évitement, `aria-current`, `aria-expanded` sur le menu,
-  libellés sur toutes les icônes sociales, tableau avec `caption`/`scope`, formulaire avec `label` et message `aria-live`.
-- Navigation clavier complète ; `prefers-reduced-motion` neutralise les transitions.
+- Contrastes AA, `:focus-visible` à fort contraste, lien d'évitement, `aria-current`, `aria-expanded` sur menus et
+  méga-menus (clic/clavier, Échap ferme), onglets ARIA (`role="tablist"`, flèches gauche/droite), mockups en `aria-hidden`
+  avec `role="img"` + `aria-label` pour la scène du hero, tableaux avec `caption`/`scope`, formulaire avec `label` et `aria-live`.
 
-## 6. Éléments à fournir / arbitrer côté client
+## 7. Éléments à fournir / arbitrer côté client
 
-- ID de la vidéo YouTube de présentation ; URL exacte d'accès à l'application ; URLs des réseaux sociaux.
+- Verbatims clients réels (les 3 témoignages sont des exemples), logos de cabinets si accord.
+- ID de la vidéo YouTube, URL exacte de l'application, URLs sociales, texte définitif du bandeau tarifaire.
 - Validation des textes GEO (blocs réponse, FAQ, comparatif) par un avocat de l'équipe.
-- Photo d'illustration des articles (remplace les placeholders SVG).
-- Confirmation de l'augmentation tarifaire au 1er octobre 2026 pour le bandeau.
+- Décision phase 2 : pages persona `/vous-etes/…` et pages par fonction `/fonctionnalites/<fonction>/`.

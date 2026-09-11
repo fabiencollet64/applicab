@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>AppliCab Avocats – Logiciel de gestion de cabinet d'avocats</title>
+<meta name="description" content="AppliCab est le logiciel de gestion de cabinet pensé par des avocats : suivi des dossiers par étapes, agenda, espace client, messagerie. 59 € HT/mois sans engagement. Essai gratuit.">
+<link rel="canonical" href="https://applicab-avocats.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AppliCab Avocats">
+<meta property="og:title" content="AppliCab Avocats – Logiciel de gestion de cabinet d'avocats">
+<meta property="og:description" content="Suivi des dossiers par étapes, agenda, espace client, messagerie. 59 € HT/mois sans engagement. Essai gratuit.">
+<meta property="og:url" content="https://applicab-avocats.com/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+{{partial:head}}
+{{partial:ld_home}}
+</head>
+<body>
+{{partial:header}}
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__copy">
+      <a class="hero__pill" href="#histoire"><b>Nouveau</b> AppliCab V3 : espace client repensé et rappels automatiques →</a>
+      <h1 id="hero-title">Le logiciel de gestion de cabinet d'avocats <span class="grad-text">qui vous rend du temps.</span></h1>
+      <p class="lead">Dossiers, étapes de procédure, agenda, espace client, messagerie : AppliCab centralise tout ce qui fait tourner un cabinet, pour gagner 30&nbsp;% de temps par dossier et rassurer 100&nbsp;% de vos clients.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="#essai">Découvrir AppliCab gratuitement {{icon:arrow}}</a>
+        <a class="btn btn--ghost btn--lg" href="#produit">{{icon:play}} Voir le produit</a>
+      </div>
+      <ul class="trust-line"><li>{{icon:check}} Sans carte bancaire</li><li>{{icon:check}} Sans engagement</li><li>{{icon:france}} Hébergé en France</li><li>{{icon:award}} Pensé par des avocats</li></ul>
+    </div>
+    <div class="hero__stage">
+      {{partial:mockup_full}}
+      <div class="float float--a"><span class="ico" style="background:var(--olive-100);color:var(--olive-600)">{{icon:bell}}</span><div><b>Rappel envoyé</b><small>Conclusions à déposer dans 5 jours</small></div></div>
+      <div class="float float--b"><span class="ico" style="background:#FFF4D6;color:#8A5B00">{{icon:users}}</span><div><b>M. Dupont a consulté son dossier</b><small>Espace client · il y a 4 min</small></div></div>
+      <div class="float float--c"><span class="ico" style="background:var(--lime-300);color:var(--forest)">{{icon:clock}}</span><div><b>+ 1 h 10 gagnée aujourd'hui</b><small>12 e-mails générés depuis vos modèles</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREUVES ============ -->
+<section class="proof" aria-label="Distinctions et garanties">
+  <div class="container">
+    <p>Reconnu par la profession, conçu dans un cabinet</p>
+    <div class="marquee">
+      <ul aria-hidden="true">
+        <li>{{icon:award}} Prix de l'innovation Gastineau 2021</li><li>{{icon:award}} Prix « Créatrice d'avenir » 2024 · Innovation</li><li>{{icon:star}} Incubateur AvocatsLab'92</li><li>{{icon:history}} Utilisé en cabinet depuis 2017</li><li>{{icon:france}} Données hébergées en France</li><li>{{icon:lock}} RGPD &amp; secret professionnel</li><li>{{icon:zap}} 0 frais d'installation, 0 frais de formation</li><li>{{icon:folder}} Conseil comme contentieux</li>
+        <li>{{icon:award}} Prix de l'innovation Gastineau 2021</li><li>{{icon:award}} Prix « Créatrice d'avenir » 2024 · Innovation</li><li>{{icon:star}} Incubateur AvocatsLab'92</li><li>{{icon:history}} Utilisé en cabinet depuis 2017</li><li>{{icon:france}} Données hébergées en France</li><li>{{icon:lock}} RGPD &amp; secret professionnel</li><li>{{icon:zap}} 0 frais d'installation, 0 frais de formation</li><li>{{icon:folder}} Conseil comme contentieux</li>
+      </ul>
+    </div>
+    <ul class="visually-hidden"><li>Prix de l'innovation Gastineau 2021</li><li>Prix Créatrice d'avenir 2024, catégorie Innovation</li><li>Incubateur AvocatsLab'92</li><li>Utilisé en cabinet depuis 2017</li><li>Données hébergées en France, RGPD et secret professionnel</li><li>0 frais d'installation, 0 frais de formation</li></ul>
+  </div>
+</section>
+
+<!-- ============ ONGLETS PRODUIT ============ -->
+<section class="section center" id="produit" aria-labelledby="produit-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Le produit</span>
+      <h2 id="produit-title">Que voulez-vous simplifier aujourd'hui ?</h2>
+      <p>Un seul outil, cinq usages quotidiens. Choisissez ce qui vous coûte le plus de temps.</p>
+    </div>
+    <div class="reveal" data-delay="1">
+      <ul class="tabs" role="tablist" aria-label="Fonctionnalités">
+        <li role="presentation"><button role="tab" id="tab-dossiers" aria-controls="p-dossiers" aria-selected="true">{{icon:folder}} Dossiers<span class="bar"></span></button></li>
+        <li role="presentation"><button role="tab" id="tab-agenda" aria-controls="p-agenda" aria-selected="false">{{icon:calendar}} Agenda<span class="bar"></span></button></li>
+        <li role="presentation"><button role="tab" id="tab-clients" aria-controls="p-clients" aria-selected="false">{{icon:users}} Clients<span class="bar"></span></button></li>
+        <li role="presentation"><button role="tab" id="tab-messagerie" aria-controls="p-messagerie" aria-selected="false">{{icon:message}} Messagerie<span class="bar"></span></button></li>
+        <li role="presentation"><button role="tab" id="tab-pilotage" aria-controls="p-pilotage" aria-selected="false">{{icon:chart}} Pilotage<span class="bar"></span></button></li>
+      </ul>
+
+      <div class="panel" id="p-dossiers" role="tabpanel" aria-labelledby="tab-dossiers" data-active="true" style="text-align:left">
+        <div>
+          <h3>Chaque dossier, étape par étape, sans pense-bête.</h3>
+          <p class="lead">Une procédure devient une liste d'étapes datées. Vous voyez d'un coup d'œil où en est chaque dossier du cabinet et ce qui doit être fait cette semaine.</p>
+          <ul class="checks"><li>Vision synthétique de tous les dossiers</li><li>Statut, échéance et responsable pour chaque étape</li><li>Modèles d'étapes par type de procédure</li></ul>
+          <a class="link-arrow" href="fonctionnalites.html#dossiers">Voir le suivi des dossiers</a>
+        </div>
+        <div class="app" aria-hidden="true">
+          <div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">Dossiers · Cette semaine</span></div>
+          <div class="app__body"><div class="app__main">
+            <div class="steps-ui">
+              <div class="row"><span class="tick is-doing"></span><span class="name">Ferreira / Licenciement <small>Saisine du CPH</small></span><span class="date">23 sept.</span><span class="chip chip--doing">En cours</span></div>
+              <div class="row"><span class="tick is-done">{{icon:check}}</span><span class="name">SAS Nova — Cession de parts <small>Signature acte</small></span><span class="date">22 sept.</span><span class="chip chip--done">Fait</span></div>
+              <div class="row"><span class="tick"></span><span class="name">Dupont c/ SCI Les Tilleuls <small>Conclusions n°1</small></span><span class="date">24 sept.</span><span class="chip chip--todo">À venir</span></div>
+              <div class="row"><span class="tick"></span><span class="name">Succession Martin <small>Déclaration au notaire</small></span><span class="date">19 sept.</span><span class="chip chip--late">En retard</span></div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-agenda" role="tabpanel" aria-labelledby="tab-agenda" data-active="false" style="text-align:left">
+        <div>
+          <h3>Des échéances calculées, des rappels automatiques.</h3>
+          <p class="lead">Les délais se déduisent des étapes : AppliCab place les échéances dans l'agenda et prévient, vous comme votre client, sans que vous y pensiez.</p>
+          <ul class="checks"><li>Agenda intégré, partageable avec le client</li><li>Rappels automatiques par e-mail avant chaque échéance</li><li>Vue semaine du cabinet entier</li></ul>
+          <a class="link-arrow" href="fonctionnalites.html#agenda">Voir l'agenda</a>
+        </div>
+        <div class="app" aria-hidden="true">
+          <div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">Agenda · Semaine 39</span></div>
+          <div class="app__body"><div class="app__main">
+            <div class="agenda">
+              <div class="ev"><time>23<span>lun.</span></time><div><b>Audience référé — TJ Nanterre</b><small>09:30 · Ferreira</small></div></div>
+              <div class="ev"><time>24<span>mar.</span></time><div><b>Dépôt conclusions n°1</b><small>Rappel envoyé J-5 et J-1</small></div></div>
+              <div class="ev"><time>26<span>jeu.</span></time><div><b>RDV client — Mme Ferreira (visio)</b><small>Client notifié · confirmé</small></div></div>
+              <div class="ev"><time>27<span>ven.</span></time><div><b>Point associés — dossiers en retard</b><small>2 étapes à réaffecter</small></div></div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-clients" role="tabpanel" aria-labelledby="tab-clients" data-active="false" style="text-align:left">
+        <div>
+          <h3>Un espace où le client suit son dossier sans vous appeler.</h3>
+          <p class="lead">Avancement, prochains rendez-vous, pièces partagées : votre client voit votre implication en temps réel. Moins d'appels « où en est-on ? », plus de confiance.</p>
+          <ul class="checks"><li>Interface client dédiée et sécurisée</li><li>Statut des étapes visible par le client</li><li>Dépôt et partage de pièces</li></ul>
+          <a class="link-arrow" href="fonctionnalites.html#clients">Voir l'espace client</a>
+        </div>
+        <div class="app" aria-hidden="true">
+          <div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">Espace client · M. Dupont</span></div>
+          <div class="app__body"><div class="app__main">
+            <div class="app__head"><div><h3>Votre dossier avance</h3><small>3 étapes sur 5 réalisées · prochaine : 24 sept.</small></div><span class="chip chip--done">À jour</span></div>
+            <div class="progress"><i style="--w:60%"></i></div>
+            <div class="mini-list">
+              <div>{{icon:check}} Mise en demeure envoyée <span class="chip chip--done">14 mars</span></div>
+              <div>{{icon:check}} Assignation signifiée <span class="chip chip--done">2 avr.</span></div>
+              <div>{{icon:clock}} Conclusions en préparation <span class="chip chip--doing">24 sept.</span></div>
+              <div>{{icon:file}} 4 pièces partagées <span class="chip chip--todo">Télécharger</span></div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-messagerie" role="tabpanel" aria-labelledby="tab-messagerie" data-active="false" style="text-align:left">
+        <div>
+          <h3>Des e-mails prêts à envoyer, tracés dans le dossier.</h3>
+          <p class="lead">Client, confrère, huissier, expert : à chaque étape, un modèle rédigé par des avocats, personnalisé automatiquement, envoyé en deux clics et archivé au dossier.</p>
+          <ul class="checks"><li>Modèles de messages rattachés à chaque étape</li><li>Traçabilité sans faille des échanges</li><li>Accusés de lecture côté client</li></ul>
+          <a class="link-arrow" href="fonctionnalites.html#messagerie">Voir la messagerie</a>
+        </div>
+        <div class="app" aria-hidden="true">
+          <div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">Messagerie · Dupont c/ SCI Les Tilleuls</span></div>
+          <div class="app__body"><div class="app__main">
+            <div class="msg">Bonjour Maître, avez-vous reçu les pièces envoyées hier ?<small>M. Dupont · 09:12</small></div>
+            <div class="msg">Bien reçu, elles sont au dossier. Les conclusions seront déposées le 24/09, vous serez notifié.<small>Modèle « Accusé de réception de pièces » · 09:40 · lu</small></div>
+            <div class="mini-list" style="margin-top:.5rem"><div>{{icon:file}} Modèle : Information audience client <span class="chip chip--todo">Envoyer</span></div><div>{{icon:file}} Modèle : Demande de pièces au confrère <span class="chip chip--todo">Envoyer</span></div></div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-pilotage" role="tabpanel" aria-labelledby="tab-pilotage" data-active="false" style="text-align:left">
+        <div>
+          <h3>Pilotez le cabinet avec des chiffres, pas des impressions.</h3>
+          <p class="lead">Dossiers ouverts, étapes en retard, honoraires facturés et impayés : les indicateurs qui comptent, calculés depuis vos dossiers, exportables en un clic.</p>
+          <ul class="checks"><li>Tableau de bord du cabinet et par collaborateur</li><li>Suivi des honoraires et relances d'impayés</li><li>Exports CSV pour l'expert-comptable</li></ul>
+          <a class="link-arrow" href="fonctionnalites.html#pilotage">Voir le pilotage</a>
+        </div>
+        <div class="app" aria-hidden="true">
+          <div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">Pilotage · Septembre 2026</span></div>
+          <div class="app__body"><div class="app__main">
+            <div class="mini-list">
+              <div>Dossiers ouverts <b style="margin-left:auto">42</b></div>
+              <div>Étapes en retard <span class="chip chip--late" style="margin-left:auto">3</span></div>
+              <div>Honoraires facturés <b style="margin-left:auto">38 400 €</b></div>
+              <div>Impayés &gt; 30 jours <span class="chip chip--doing" style="margin-left:auto">2 relances auto</span></div>
+            </div>
+            <div><small style="color:var(--ink-3)">Charge par collaborateur</small><div class="progress" style="margin-top:.3rem"><i style="--w:72%"></i></div><div class="progress" style="margin-top:.3rem"><i style="--w:48%"></i></div><div class="progress" style="margin-top:.3rem"><i style="--w:88%"></i></div></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POURQUOI (bento + réponse directe) ============ -->
+<section class="section section--sand" id="pourquoi" aria-labelledby="pourquoi-title">
+  <div class="container">
+    <div class="section-head section-head--split reveal">
+      <div><span class="eyebrow">Pourquoi AppliCab</span><h2 id="pourquoi-title">Un second cerveau pour le cabinet, pas un logiciel de plus.</h2></div>
+      <p>Les logiciels métier généralistes gèrent la facturation. AppliCab part de ce qui structure vraiment votre journée : la procédure et ses étapes.</p>
+    </div>
+    <div class="bento">
+      <article class="card span-7 reveal">
+        <span class="card__icon">{{icon:folder}}</span>
+        <h3>Maîtrise complète des dossiers</h3>
+        <p>Adieu aux pense-bêtes et to-do lists éparpillés. Grâce au statut de chaque étape, vous savez exactement où vous en êtes pour chaque dossier et vous priorisez enfin votre travail de fond.</p>
+        <div class="card__ui" aria-hidden="true"><div class="mini-list"><div>Succession Martin · Déclaration au notaire <span class="chip chip--late">Retard 4 j</span></div><div>Ferreira / Licenciement · Saisine CPH <span class="chip chip--doing">Cette semaine</span></div><div>SAS Nova · Cession de parts <span class="chip chip--done">Clôturé</span></div></div></div>
+      </article>
+      <article class="card card--forest span-5 reveal" data-delay="1">
+        <span class="card__icon">{{icon:users}}</span>
+        <h3>Relation client apaisée</h3>
+        <p>Montrez votre implication : agenda partagé, avancement visible, messagerie tracée. Le client est rassuré sans vous interrompre.</p>
+        <div class="card__ui" aria-hidden="true"><div class="msg">Merci Maître, je vois que l'assignation est partie. Je suis rassuré.<small>M. Dupont · via l'espace client</small></div></div>
+      </article>
+      <article class="card span-4 reveal">
+        <span class="card__icon">{{icon:zap}}</span>
+        <h3>Productivité et sérénité</h3>
+        <p>De la prise de contact à l'archivage : un flux unique, un calendrier intégré et des rappels automatiques.</p>
+      </article>
+      <article class="card span-4 reveal" data-delay="1">
+        <span class="card__icon">{{icon:message}}</span>
+        <h3>Moins d'efforts, plus d'efficacité</h3>
+        <p>Épargnez-vous l'écriture chronophage : des e-mails déjà préparés par nos soins, prêts à être envoyés en deux clics.</p>
+      </article>
+      <article class="card card--lime span-4 reveal" data-delay="2">
+        <span class="card__icon" style="background:rgba(255,255,255,.6)">{{icon:award}}</span>
+        <h3>Né dans un cabinet</h3>
+        <p style="color:var(--ink)">Développé en 2017 pour le cabinet SOUSSENS AVOCAT, enrichi depuis avec ses utilisateur·ice·s. Primé deux fois par la profession.</p>
+        <a class="link-arrow" href="#histoire" style="color:var(--forest)">Notre histoire</a>
+      </article>
+    </div>
+
+    <div class="answer reveal" style="margin-top:var(--sp-5)">
+      <h2>Quel est le meilleur logiciel de gestion pour un cabinet d'avocats ?</h2>
+      <p>Le meilleur logiciel de gestion pour un cabinet d'avocats est celui qui suit la logique de la procédure plutôt que celle de la comptabilité. AppliCab Avocats est un logiciel en ligne, conçu par des avocats, qui organise chaque dossier en étapes datées avec un statut, relie ces étapes à un agenda avec rappels automatiques, ouvre un espace client où le justiciable suit l'avancement, et fournit des modèles d'e-mails à chaque étape. Il convient aux avocats indépendants comme aux cabinets de plusieurs associés, en conseil comme en contentieux, pour 59 € HT par utilisateur et par mois, sans engagement, avec un essai gratuit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHIFFRES ============ -->
+<section class="section section--dark section--tight" aria-label="Chiffres clés">
+  <div class="container">
+    <div class="stats">
+      <div class="stat reveal"><div class="stat__value"><span data-count="30">30</span><small>%</small></div><p class="stat__label">de temps gagné par dossier, mesuré chez les cabinets utilisateurs</p></div>
+      <div class="stat reveal" data-delay="1"><div class="stat__value"><span data-count="100">100</span><small>%</small></div><p class="stat__label">de clients rassurés grâce à l'espace client et aux rappels</p></div>
+      <div class="stat reveal" data-delay="2"><div class="stat__value"><span>1</span><small>h / jour</small></div><p class="stat__label">économisée sur les tâches administratives grâce à l'automatisation</p></div>
+      <div class="stat reveal" data-delay="3"><div class="stat__value"><span>2017</span></div><p class="stat__label">année de la première version, développée pour un cabinet parisien</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERSONAS ============ -->
+<section class="section" id="vous-etes" aria-labelledby="vous-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Vous êtes</span>
+      <h2 id="vous-title">Aussi efficace en conseil qu'en contentieux.</h2>
+      <p>AppliCab s'adapte à la taille du cabinet et à la matière pratiquée. Trouvez votre cas d'usage.</p>
+    </div>
+    <div class="personas">
+      <a class="persona reveal" href="fonctionnalites.html#cas-usage"><span class="persona__n">01</span><h3>Avocat·e indépendant·e</h3><p>Tout le cabinet dans une seule fenêtre : dossiers, agenda, clients, relances. Vous exercez, AppliCab tient le fil.</p><span>Découvrir</span></a>
+      <a class="persona reveal" data-delay="1" href="fonctionnalites.html#cas-usage"><span class="persona__n">02</span><h3>Cabinet de plusieurs associés</h3><p>Une vision partagée de tous les dossiers, un responsable par étape, une charge de travail lisible.</p><span>Découvrir</span></a>
+      <a class="persona reveal" data-delay="2" href="tarifs.html#jeune-avocat"><span class="persona__n">03</span><h3>Jeune avocat·e</h3><p>Installé·e ou assermenté·e depuis moins de deux ans : 39 € HT/mois pendant 12 mois, formation incluse.</p><span>Voir l'offre</span></a>
+      <a class="persona reveal" data-delay="3" href="fonctionnalites.html#cas-usage"><span class="persona__n">04</span><h3>Conseil &amp; droit des affaires</h3><p>Actes, secrétariat juridique, formalités : des étapes types pour chaque opération, des modèles pour chaque envoi.</p><span>Découvrir</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FONCTIONNALITÉS EN DÉTAIL ============ -->
+<section class="section section--sand" aria-labelledby="detail-title">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-inline:auto;justify-items:center;text-align:center">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2 id="detail-title">De la prise de contact à l'archivage, un seul fil.</h2>
+    </div>
+    <div class="feature reveal">
+      <div>
+        <h3>Une liste des étapes pour chaque dossier</h3>
+        <p class="lead">Créez un dossier, choisissez le type de procédure : la liste des étapes se génère avec ses délais. Il ne reste qu'à faire avancer les statuts.</p>
+        <ul class="checks"><li>Étapes types : référé, fond, prud'hommes, cession, succession…</li><li>Réaffectation d'une étape à un collaborateur en un glisser</li><li>Historique complet, horodaté</li></ul>
+        <a class="link-arrow" href="fonctionnalites.html#dossiers">Tout sur le suivi des dossiers</a>
+      </div>
+      <div class="feature__media"><div class="app" aria-hidden="true"><div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">Nouveau dossier · Modèle « Référé commercial »</span></div><div class="app__body"><div class="app__main"><div class="steps-ui"><div class="row"><span class="tick is-done">{{icon:check}}</span><span class="name">Ouverture &amp; convention d'honoraires</span><span class="date">J0</span><span class="chip chip--done">Fait</span></div><div class="row"><span class="tick is-doing"></span><span class="name">Mise en demeure</span><span class="date">J+3</span><span class="chip chip--doing">En cours</span></div><div class="row"><span class="tick"></span><span class="name">Assignation en référé</span><span class="date">J+15</span><span class="chip chip--todo">À venir</span></div><div class="row"><span class="tick"></span><span class="name">Audience</span><span class="date">J+45</span><span class="chip chip--todo">À venir</span></div><div class="row"><span class="tick"></span><span class="name">Ordonnance &amp; signification</span><span class="date">J+60</span><span class="chip chip--todo">À venir</span></div></div></div></div></div></div>
+    </div>
+    <div class="feature feature--flip reveal">
+      <div>
+        <h3>Une interface dédiée pour le client</h3>
+        <p class="lead">Votre client se connecte, voit les étapes franchies, les rendez-vous à venir et les pièces partagées. Il comprend la procédure et cesse d'appeler pour savoir « où on en est ».</p>
+        <ul class="checks"><li>Accès sécurisé, sans installation</li><li>Notifications à chaque changement de statut</li><li>Messagerie intégrée, tracée au dossier</li></ul>
+        <a class="link-arrow" href="fonctionnalites.html#clients">Tout sur l'espace client</a>
+      </div>
+      <div class="feature__media"><div class="app" aria-hidden="true"><div class="app__bar"><span class="app__dots"><i></i><i></i><i></i></span><span class="app__url">client.applicab-avocats.com</span></div><div class="app__body"><div class="app__main"><div class="app__head"><div><h3>Bonjour M. Dupont</h3><small>Votre dossier avec Me Marin</small></div><span class="chip chip--done">À jour</span></div><div class="progress"><i style="--w:60%"></i></div><div class="agenda"><div class="ev"><time>24<span>sept.</span></time><div><b>Dépôt des conclusions</b><small>Par votre avocate</small></div></div><div class="ev"><time>12<span>nov.</span></time><div><b>Audience de plaidoirie</b><small>Tribunal de commerce de Nanterre, 14h</small></div></div></div></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTHODE (GEO) ============ -->
+<section class="section" id="digitaliser" aria-labelledby="digi-title">
+  <div class="container">
+    <div class="section-head section-head--split reveal">
+      <div><span class="eyebrow">Méthode</span><h2 id="digi-title">Comment digitaliser la gestion d'un cabinet d'avocats ?</h2></div>
+      <p>Digitaliser un cabinet d'avocats consiste à centraliser dossiers, agenda et échanges dans un outil unique, en quatre étapes.</p>
+    </div>
+    <ol class="steps">
+      <li class="step reveal"><h3>Cartographier les procédures</h3><p>Listez les types de dossiers du cabinet et, pour chacun, les étapes et délais habituels. C'est le socle des modèles d'étapes.</p></li>
+      <li class="step reveal" data-delay="1"><h3>Centraliser dans un outil unique</h3><p>Remplacez tableurs, post-its et boîtes mail cloisonnées par un logiciel où chaque dossier porte ses étapes, son agenda et ses échanges.</p></li>
+      <li class="step reveal" data-delay="2"><h3>Automatiser rappels et courriers</h3><p>Rappels calculés depuis les étapes, e-mails générés depuis des modèles : les tâches répétitives disparaissent, environ une heure par jour.</p></li>
+      <li class="step reveal" data-delay="3"><h3>Ouvrir un espace au client</h3><p>Donnez au client l'accès à l'avancement de son dossier. Les appels « où en est-on ? » cessent, la confiance augmente.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ TÉMOIGNAGES ============ -->
+<section class="section section--sand" aria-labelledby="temoin-title">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-inline:auto;justify-items:center;text-align:center">
+      <span class="eyebrow">Ils utilisent AppliCab</span>
+      <h2 id="temoin-title">Ce que disent les cabinets.</h2>
+      <p>Témoignages d'exemple pour la maquette, à remplacer par des verbatims clients validés.</p>
+    </div>
+    <div class="quotes">
+      <article class="quote reveal"><span class="stars" aria-label="5 sur 5">★★★★★</span><blockquote>J'ai enfin arrêté de tenir un tableur à côté du logiciel. La liste d'étapes, c'est exactement comme je pense un dossier.</blockquote><footer><span class="avatar">SM</span><div><b>Me S. M.</b>Avocate, contentieux commercial · Paris</div></footer></article>
+      <article class="quote reveal" data-delay="1"><span class="stars" aria-label="5 sur 5">★★★★★</span><blockquote>Mes clients consultent leur espace avant de m'appeler. J'ai divisé par deux les appels de suivi.</blockquote><footer><span class="avatar avatar--b">KB</span><div><b>Me K. B.</b>Avocat, droit social · Lyon</div></footer></article>
+      <article class="quote reveal" data-delay="2"><span class="stars" aria-label="5 sur 5">★★★★★</span><blockquote>Installée depuis un an, le tarif jeune avocat m'a permis de démarrer avec un vrai outil sans me ruiner.</blockquote><footer><span class="avatar avatar--c">AL</span><div><b>Me A. L.</b>Avocate, droit de la famille · Bordeaux</div></footer></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTOIRE ============ -->
+<section class="section section--dark" id="histoire" aria-labelledby="hist-title">
+  <div class="container">
+    <div class="section-head section-head--split reveal">
+      <div><span class="eyebrow">Notre histoire</span><h2 id="hist-title">Un outil né dans un cabinet, pas dans une startup.</h2></div>
+      <p>AppliCab est développé depuis 2017 avec les avocats qui l'utilisent chaque jour. Deux prix de la profession ont salué cette approche.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="stat__value"><span>2017</span></div><p class="stat__label"><strong>Développement de la V1</strong> pour le cabinet SOUSSENS AVOCAT</p></div>
+      <div class="stat reveal" data-delay="1"><div class="stat__value"><span>2021</span></div><p class="stat__label"><strong>Prix de l'innovation Gastineau</strong> décerné par l'Incubateur AvocatsLab'92</p></div>
+      <div class="stat reveal" data-delay="2"><div class="stat__value"><span>2024</span></div><p class="stat__label"><strong>Déploiement de la V3</strong> et Prix « Créatrice d'avenir », catégorie Innovation (jury parisien, PIE)</p></div>
+      <div class="stat reveal" data-delay="3"><div class="stat__value"><span style="font-size:.6em">Aujourd'hui</span></div><p class="stat__label"><strong>L'application est sans cesse enrichie</strong> selon les besoins de ses utilisateur·ice·s</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARIFS ============ -->
+<section class="section" id="tarifs" aria-labelledby="price-title">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-inline:auto;justify-items:center;text-align:center">
+      <span class="eyebrow">Tarifs</span>
+      <h2 id="price-title">Un prix simple, par utilisateur, sans engagement.</h2>
+      <p>Toutes les fonctionnalités dans chaque abonnement. Aucun frais caché.</p>
+    </div>
+    <div class="pricing">
+      <article class="plan reveal">
+        <p class="plan__name">Abonnement standard</p>
+        <p class="plan__desc">Pour tout avocat ou cabinet, quelle que soit la matière.</p>
+        <p class="plan__price">59 €<small>HT / utilisateur / mois</small></p>
+        <ul class="checks"><li>Toutes les fonctionnalités</li><li>Utilisateurs illimités, facturés à l'unité</li><li>Support par e-mail et visio</li></ul>
+        <a class="btn btn--primary" href="#essai">Découvrir AppliCab gratuitement {{icon:arrow}}</a>
+      </article>
+      <article class="plan plan--featured reveal" data-delay="1" id="jeune-avocat-home">
+        <span class="plan__tag">Jeune avocat·e</span>
+        <p class="plan__name">Abonnement « jeune avocat »</p>
+        <p class="plan__desc">Prestation de serment ou installation datant de moins de 2 ans.</p>
+        <p class="plan__price">39 €<small>HT / mois pendant 12 mois</small></p>
+        <ul class="checks"><li>Toutes les fonctionnalités</li><li>Puis 59 € HT/mois, toujours sans engagement</li><li>Accompagnement à l'installation</li></ul>
+        <a class="btn btn--lime" href="tarifs.html#jeune-avocat">Voir l'offre jeune avocat {{icon:arrow}}</a>
+      </article>
+      <article class="plan plan--conditions reveal" data-delay="2">
+        <p class="plan__name">Inclus dans chaque abonnement</p>
+        <ul class="checks"><li>Pas d'engagement de durée</li><li>0 frais d'installation</li><li>0 frais de formation</li><li>Essai gratuit sans carte bancaire</li><li>Export de vos données à tout moment</li><li>Hébergement en France, RGPD</li></ul>
+        <a class="link-arrow" href="tarifs.html">Comparer en détail</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--sand" id="faq" aria-labelledby="faq-title">
+  <div class="container--narrow">
+    <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2 id="faq-title">Les questions que se posent les cabinets avant de choisir.</h2></div>
+    <div class="faq reveal">
+      <details open><summary>Qu'est-ce qu'AppliCab Avocats ?</summary><div><p>AppliCab Avocats est un logiciel de gestion de cabinet d'avocats, accessible en ligne, qui centralise le suivi des dossiers, les étapes de procédure, l'agenda, la relation client et les modèles de courriers. Il est conçu par des avocats, pour des avocats, et fonctionne aussi bien en conseil qu'en contentieux.</p></div></details>
+      <details><summary>Combien coûte AppliCab ?</summary><div><p>L'abonnement standard à AppliCab coûte 59 € HT par mois et par utilisateur, sans engagement de durée. Les avocats installés ou ayant prêté serment depuis moins de deux ans bénéficient d'un tarif « jeune avocat » à 39 € HT par mois pendant douze mois. Il n'y a ni frais d'installation ni frais de formation.</p></div></details>
+      <details><summary>Puis-je tester AppliCab gratuitement ?</summary><div><p>Oui. AppliCab propose un essai gratuit sans carte bancaire, avec l'ensemble des fonctionnalités et un accompagnement à la prise en main. Vous pouvez ensuite souscrire ou arrêter librement.</p></div></details>
+      <details><summary>AppliCab convient-il à un avocat qui exerce seul ?</summary><div><p>Oui. AppliCab est utilisé par des avocats individuels comme par des cabinets de plusieurs associés et collaborateurs. L'abonnement mensuel par utilisateur, sans engagement, permet de démarrer seul et d'ajouter des comptes au fur et à mesure.</p></div></details>
+      <details><summary>Mes données et celles de mes clients sont-elles protégées ?</summary><div><p>Les données sont hébergées en France, chiffrées en transit, sauvegardées quotidiennement et traitées conformément au RGPD et au secret professionnel de l'avocat. Chaque cabinet ne voit que ses propres dossiers, et vous pouvez exporter vos données à tout moment.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section" id="blog" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="section-head section-head--split reveal">
+      <div><span class="eyebrow">Ressources</span><h2 id="blog-title">Organisation, facturation, innovation : le blog des cabinets.</h2></div>
+      <p><a class="link-arrow" href="blog/article.html">Tous les articles</a></p>
+    </div>
+    <div class="posts">
+      <article class="post-card reveal"><a class="post-card__media" href="blog/article.html" aria-hidden="true" tabindex="-1">{{icon:clock}}</a><div class="post-card__body"><p class="post-card__meta"><span class="cat">Organisation</span><span>·</span><time datetime="2026-06-10">10 juin 2026</time><span>·</span><span>7 min</span></p><h3><a href="blog/article.html">L'organisation du cabinet d'avocat : comment l'automatisation vous fait gagner 1 heure par jour</a></h3><p>Rappels, modèles d'e-mails, étapes types : les trois automatisations qui rendent du temps chaque jour.</p><a class="link-arrow" href="blog/article.html">Lire l'article</a></div></article>
+      <article class="post-card reveal" data-delay="1"><a class="post-card__media post-card__media--b" href="blog/article.html" aria-hidden="true" tabindex="-1">{{icon:file}}</a><div class="post-card__body"><p class="post-card__meta"><span class="cat">Facturation</span><span>·</span><time datetime="2026-04-22">22 avril 2026</time><span>·</span><span>9 min</span></p><h3><a href="blog/article.html">Le Guide Anti-Impayés pour Avocats</a></h3><p>De la convention d'honoraires à la relance : prévenir les impayés et organiser leur recouvrement.</p><a class="link-arrow" href="blog/article.html">Lire l'article</a></div></article>
+      <article class="post-card reveal" data-delay="2"><a class="post-card__media post-card__media--c" href="blog/article.html" aria-hidden="true" tabindex="-1">{{icon:chart}}</a><div class="post-card__body"><p class="post-card__meta"><span class="cat">Pilotage</span><span>·</span><time datetime="2026-03-05">5 mars 2026</time><span>·</span><span>6 min</span></p><h3><a href="blog/article.html">Les KPI, ça vous parle ?</a></h3><p>Pourquoi quelques indicateurs bien choisis suffisent à piloter un cabinet et à prendre de meilleures décisions.</p><a class="link-arrow" href="blog/article.html">Lire l'article</a></div></article>
+    </div>
+  </div>
+</section>
+
+{{partial:cta}}
+</main>
+{{partial:footer}}
+</body>
+</html>
