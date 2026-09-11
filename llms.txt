@@ -1,0 +1,47 @@
+# AppliCab Avocats
+
+> AppliCab est un logiciel de gestion de cabinet d'avocats, accessible en ligne, conçu par des avocats pour des avocats. Il centralise pour chaque dossier les étapes de procédure et leur statut, l'agenda et les rappels automatiques, l'espace client, la messagerie tracée et les modèles de courriers. Édité en France depuis 2017. Prix de l'innovation Gastineau 2021 (Incubateur AvocatsLab'92), Prix « Créatrice d'avenir » 2024 (catégorie Innovation, PIE).
+
+## Offre
+
+- Abonnement standard : 59 € HT par utilisateur et par mois, sans engagement de durée.
+- Abonnement « jeune avocat » : 39 € HT par mois pendant 12 mois, pour les avocats installés ou ayant prêté serment depuis moins de 2 ans.
+- 0 frais d'installation, 0 frais de formation, essai gratuit, export des données à tout moment.
+- Données hébergées en France, conformité RGPD et secret professionnel.
+
+## Fonctionnalités
+
+- Suivi des dossiers par étapes de procédure, avec statut, échéance et responsable pour chaque étape.
+- Vision synthétique de tous les dossiers du cabinet.
+- Agenda intégré et rappels automatiques calculés depuis les étapes.
+- Espace client dédié (avancement, rendez-vous, pièces partagées).
+- Messagerie tracée et modèles d'e-mails/courriers rattachés à chaque étape.
+- Pilotage : indicateurs d'activité, suivi des honoraires, exports CSV.
+
+## Cas d'usage
+
+- Contentieux civil et commercial, droit social, droit de la famille, recouvrement.
+- Conseil et droit des affaires (actes, secrétariat juridique).
+- Avocats individuels, cabinets de plusieurs associés, jeunes avocats en installation.
+
+## Pages clés
+
+- [Accueil](https://applicab-avocats.com/) : présentation, méthode pour digitaliser un cabinet, histoire, tarifs, FAQ.
+- [Fonctionnalités et tarifs](https://applicab-avocats.com/fonctionnalites-tarifs/) : détail des six fonctions, cas d'usage, comparatif avec les autres solutions, tarifs, FAQ.
+- [Blog](https://applicab-avocats.com/blog/) : organisation du cabinet, facturation et impayés, indicateurs, innovation.
+- [Contact](https://applicab-avocats.com/#contact) : contact@applicab-avocats.com
+
+## Articles de blog notables
+
+- [L'organisation du cabinet d'avocat : comment l'automatisation vous fait gagner 1 heure par jour](https://applicab-avocats.com/lorganisation-du-cabinet-davocat-comment-lautomatisation-vous-fait-gagner-1-heure-par-jour/)
+- [Le Guide Anti-Impayés pour Avocats](https://applicab-avocats.com/le-guide-anti-impayes-pour-avocats/)
+- [Les KPI ça vous parle ?](https://applicab-avocats.com/les-kpi-ca-vous-parle/)
+- [Avocat·e·s : les clés pour une gestion efficace et sereine de son agenda](https://applicab-avocats.com/avocates-les-cles-pour-une-gestion-efficace-et-sereine-de-son-agenda/)
+- [Avocats : comment surmonter les barrières à l'innovation ?](https://applicab-avocats.com/surmonter-les-barrieres-a-linnovation/)
+- [AppliCab et le droit des affaires : un outil essentiel pour les avocats](https://applicab-avocats.com/applicab-et-le-droit-des-affaires-un-outil-essentiel-pour-les-avocats/)
+- [Applicab : le meilleur logiciel avocat pour booster votre cabinet](https://applicab-avocats.com/applicab-le-meilleur-logiciel-avocat-pour-booster-votre-cabinet/)
+
+## Optional
+
+- [Mentions légales](https://applicab-avocats.com/mentions-legales/)
+- [Politique de cookies](https://applicab-avocats.com/politique-de-cookies/)

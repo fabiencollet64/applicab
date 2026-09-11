@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AppliCab Avocats – Logiciel de gestion de cabinet d'avocats</title>
+<meta name="description" content="AppliCab est le logiciel de gestion de cabinet pensé par des avocats : suivi des dossiers par étapes, agenda, espace client, messagerie. 59 € HT/mois sans engagement. Essai gratuit.">
+<link rel="canonical" href="https://applicab-avocats.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AppliCab Avocats">
+<meta property="og:title" content="AppliCab Avocats – Logiciel de gestion de cabinet d'avocats">
+<meta property="og:description" content="AppliCab est le logiciel de gestion de cabinet pensé par des avocats : suivi des dossiers par étapes, agenda, espace client, messagerie. 59 € HT/mois sans engagement. Essai gratuit.">
+<meta property="og:url" content="https://applicab-avocats.com/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1ECE2">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<!-- Polices : en production, à auto-héberger dans le thème (voir NOTE-TECHNIQUE.md) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@700;800&family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+<script defer src="assets/js/main.js"></script>
+
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://applicab-avocats.com/#organization",
+  "name": "AppliCab Avocats",
+  "url": "https://applicab-avocats.com/",
+  "logo": "https://applicab-avocats.com/assets/img/logo.svg",
+  "description": "Éditeur du logiciel de gestion de cabinet d'avocats AppliCab, pensé par des avocats pour des avocats.",
+  "foundingDate": "2017",
+  "email": "contact@applicab-avocats.com",
+  "areaServed": "FR",
+  "award": [
+   "Prix de l'innovation Gastineau 2021 (Incubateur AvocatsLab'92)",
+   "Prix Créatrice d'avenir 2024, catégorie Innovation (Jury parisien, PIE)"
+  ],
+  "sameAs": [
+   "https://www.linkedin.com/company/applicab-avocats",
+   "https://www.facebook.com/applicabavocats",
+   "https://www.instagram.com/applicabavocats",
+   "https://www.youtube.com/@applicabavocats"
+  ],
+  "contactPoint": {
+   "@type": "ContactPoint",
+   "contactType": "sales",
+   "email": "contact@applicab-avocats.com",
+   "availableLanguage": "fr"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://applicab-avocats.com/#website",
+  "url": "https://applicab-avocats.com/",
+  "name": "AppliCab Avocats",
+  "inLanguage": "fr-FR",
+  "publisher": {
+   "@id": "https://applicab-avocats.com/#organization"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://applicab-avocats.com/#software",
+  "name": "AppliCab",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Logiciel de gestion de cabinet d'avocats",
+  "operatingSystem": "Web (navigateur), iOS, Android",
+  "url": "https://applicab-avocats.com/",
+  "description": "Logiciel de gestion de cabinet d'avocats : suivi des dossiers par étapes, agenda avec rappels automatiques, espace client, messagerie tracée, modèles de courriers, indicateurs d'activité.",
+  "featureList": [
+   "Suivi des dossiers par étapes de procédure",
+   "Statut de chaque étape et priorisation",
+   "Agenda intégré avec rappels automatiques",
+   "Espace client dédié",
+   "Messagerie tracée via AppliCab",
+   "Modèles de messages à chaque étape",
+   "Vision synthétique du cabinet",
+   "Indicateurs d'activité (KPI)"
+  ],
+  "audience": {
+   "@type": "Audience",
+   "audienceType": "Avocats et cabinets d'avocats"
+  },
+  "publisher": {
+   "@id": "https://applicab-avocats.com/#organization"
+  },
+  "offers": [
+   {
+    "@type": "Offer",
+    "name": "Abonnement standard",
+    "price": "59",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+     "@type": "UnitPriceSpecification",
+     "price": "59",
+     "priceCurrency": "EUR",
+     "valueAddedTaxIncluded": false,
+     "unitText": "par utilisateur et par mois",
+     "billingDuration": "P1M"
+    },
+    "availability": "https://schema.org/InStock",
+    "url": "https://applicab-avocats.com/fonctionnalites-tarifs.html#tarifs"
+   },
+   {
+    "@type": "Offer",
+    "name": "Abonnement jeune avocat",
+    "price": "39",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+     "@type": "UnitPriceSpecification",
+     "price": "39",
+     "priceCurrency": "EUR",
+     "valueAddedTaxIncluded": false,
+     "unitText": "par utilisateur et par mois pendant 12 mois",
+     "billingDuration": "P1M"
+    },
+    "eligibleCustomerType": "Avocat installé ou ayant prêté serment depuis moins de 2 ans",
+    "availability": "https://schema.org/InStock",
+    "url": "https://applicab-avocats.com/fonctionnalites-tarifs.html#tarifs"
+   }
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Qu'est-ce qu'AppliCab Avocats ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "AppliCab Avocats est un logiciel de gestion de cabinet d'avocats, accessible en ligne, qui centralise le suivi des dossiers, les étapes de procédure, l'agenda, la relation client et les modèles de courriers. Il est conçu par des avocats, pour des avocats, et fonctionne aussi bien en conseil qu'en contentieux."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Combien coûte AppliCab ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "L'abonnement standard à AppliCab coûte 59 € HT par mois et par utilisateur, sans engagement de durée. Les avocats installés ou ayant prêté serment depuis moins de deux ans bénéficient d'un tarif « jeune avocat » à 39 € HT par mois pendant douze mois. Il n'y a ni frais d'installation ni frais de formation."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Puis-je tester AppliCab gratuitement ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Oui. AppliCab propose un essai gratuit sans carte bancaire, avec l'ensemble des fonctionnalités et un accompagnement à la prise en main. Vous pouvez ensuite souscrire ou arrêter librement."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "AppliCab convient-il à un avocat qui exerce seul ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Oui. AppliCab est utilisé par des avocats individuels comme par des cabinets de plusieurs associés et collaborateurs. L'abonnement mensuel par utilisateur, sans engagement, permet de démarrer seul et d'ajouter des comptes au fur et à mesure."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Mes données et celles de mes clients sont-elles protégées ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Les données AppliCab sont hébergées en France chez un hébergeur certifié, chiffrées en transit, sauvegardées quotidiennement et accessibles uniquement par les utilisateurs habilités du cabinet. Le traitement respecte le RGPD et le secret professionnel de l'avocat."
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div class="proto-note">Maquette de refonte — prototype non contractuel. Pages : <a href="index.html">Accueil</a> · <a href="fonctionnalites-tarifs.html">Fonctionnalités &amp; tarifs</a> · <a href="blog/article.html">Article de blog</a></div>
+<div class="announce" role="region" aria-label="Annonce">Le prix de l'abonnement augmente au 1<sup>er</sup> octobre 2026. <a href="fonctionnalites-tarifs.html#tarifs">Souscrivez avant le 1/10/2026 pour conserver les tarifs actuels.</a></div>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="AppliCab Avocats, accueil"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3c5.5 0 8 8 10.2 15 3.4 9.8 2.6 19-10.2 19S6.4 27.8 9.8 18C12 11 14.5 3 20 3z" fill="#5B7A1F"/><path d="M20 3c5.5 0 8 8 10.2 15l-10.2 3z" fill="#DCCB4F"/><path d="M9.8 18C12 11 14.5 3 20 3v18z" fill="#3D5516"/><path d="M20 21l10.2-3c3.4 9.8 2.6 19-10.2 19z" fill="#A9C24A"/><ellipse cx="20" cy="27" rx="5" ry="5.8" fill="#A4492F"/></svg><span>AppliCab Avocats</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="nav-toggle__label">Menu</span></button>
+    <nav class="nav" id="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="fonctionnalites-tarifs.html">Fonctionnalités &amp; tarifs</a></li>
+        <li><a href="fonctionnalites-tarifs.html#cas-usage">Cas d'usage</a></li>
+        <li><a href="index.html#histoire">À propos</a></li>
+        <li><a href="blog/article.html">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="#acces-application" rel="nofollow">Accès à l'application</a></li>
+        <li class="nav-cta"><a class="btn btn--primary" href="fonctionnalites-tarifs.html#essai">Découvrir AppliCab gratuitement</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<!-- ======================= HERO (template PHP fixe : front-page.php) ======================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div>
+      <p class="hero__kicker">Logiciel de gestion de cabinet, pensé par des avocats</p>
+      <h1 id="hero-title">Avocats : gagnez du temps <em>et de la sérénité</em> avec AppliCab.</h1>
+      <p class="lead">Chaque dossier avance étape par étape, vos clients savent où ils en sont, et vous retrouvez du temps de fond. Aussi efficace en conseil qu'en contentieux.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary btn--lg" href="#essai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Découvrir AppliCab gratuitement</a>
+        <a class="btn btn--ghost btn--lg" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Demander une démo</a>
+      </div>
+      <div class="hero__proof">
+        <ul>
+          <li>Abonnement mensuel sans engagement</li>
+          <li>0 frais d'installation, 0 frais de formation</li>
+          <li>Données hébergées en France</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hero__art reveal">
+      <svg viewBox="0 0 300 380" role="img" aria-labelledby="mascot-title">
+  <title id="mascot-title">La mascotte AppliCab : un avocat en pièces de puzzle assemblées</title>
+  <defs>
+    <clipPath id="avo"><path d="M150 18C195 18 215 90 232 150 262 230 250 360 150 362 50 360 38 230 68 150 85 90 105 18 150 18Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#avo)">
+    <rect x="0" y="0" width="150" height="190" fill="#3D5516"/>
+    <rect x="150" y="0" width="150" height="190" fill="#DCCB4F"/>
+    <rect x="0" y="190" width="150" height="200" fill="#A9C24A"/>
+    <rect x="150" y="190" width="150" height="200" fill="#5B7A1F"/>
+    <!-- tenons de puzzle -->
+    <circle cx="150" cy="120" r="16" fill="#DCCB4F"/>
+    <circle cx="205" cy="190" r="16" fill="#DCCB4F"/>
+    <circle cx="150" cy="300" r="16" fill="#5B7A1F"/>
+    <circle cx="95" cy="190" r="16" fill="#3D5516"/>
+  </g>
+  <path d="M150 18C195 18 215 90 232 150 262 230 250 360 150 362 50 360 38 230 68 150 85 90 105 18 150 18Z" fill="none" stroke="#2F2924" stroke-width="5" stroke-linejoin="round"/>
+  <!-- noyau -->
+  <ellipse cx="150" cy="262" rx="50" ry="60" fill="#A4492F" stroke="#2F2924" stroke-width="5"/>
+  <ellipse cx="132" cy="240" rx="12" ry="18" fill="#C46A4C" opacity=".7"/>
+  <!-- visage -->
+  <circle cx="118" cy="150" r="14" fill="#fff" stroke="#2F2924" stroke-width="4"/>
+  <circle cx="182" cy="150" r="14" fill="#fff" stroke="#2F2924" stroke-width="4"/>
+  <circle cx="121" cy="152" r="6" fill="#2F2924"/>
+  <circle cx="185" cy="152" r="6" fill="#2F2924"/>
+  <ellipse cx="96" cy="178" rx="13" ry="8" fill="#E8A79A" opacity=".85"/>
+  <ellipse cx="204" cy="178" rx="13" ry="8" fill="#E8A79A" opacity=".85"/>
+  <path d="M138 182q12 10 24 0" fill="none" stroke="#2F2924" stroke-width="4" stroke-linecap="round"/>
+</svg>
+      <p class="hero__badge"><strong>Prix de l'innovation Gastineau 2021</strong>décerné par l'Incubateur AvocatsLab'92</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CHIFFRES CLÉS (bloc Gutenberg réutilisable "applicab/kpis") ======================= -->
+<section class="section--tight" aria-label="Chiffres clés">
+  <div class="container">
+    <dl class="kpis">
+      <div class="kpi"><dt class="kpi__label">de temps gagné par dossier</dt><dd class="kpi__value">30 %</dd></div>
+      <div class="kpi"><dt class="kpi__label">de clients rassurés par le suivi partagé</dt><dd class="kpi__value">100 %</dd></div>
+      <div class="kpi"><dt class="kpi__label">d'utilisation en cabinet, depuis la V1 en 2017</dt><dd class="kpi__value">9 ans</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ======================= RÉPONSE DIRECTE / GEO (bloc "applicab/reponse") ======================= -->
+<section class="section section--tight" aria-labelledby="def-title">
+  <div class="container">
+    <div class="answer measure" id="definition">
+      <h2 id="def-title">Quel est le meilleur logiciel de gestion pour un cabinet d'avocats ?</h2>
+      <p>Le meilleur logiciel de gestion pour un cabinet d'avocats est celui qui suit chaque dossier <strong>étape par étape</strong>, partage l'avancement avec le client et s'installe sans changer les habitudes du cabinet. <strong>AppliCab Avocats</strong> répond à ces trois critères : un suivi par étapes de procédure avec statuts, un espace client et une messagerie tracée, un abonnement mensuel à 59 € HT sans engagement ni frais d'installation. Il est conçu par des avocats, utilisé depuis 2017 en conseil comme en contentieux, et récompensé par le Prix de l'innovation Gastineau 2021.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PRÉSENTATION (bloc "applicab/benefices", bento) ======================= -->
+<section class="section" id="presentation" aria-labelledby="pres-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Présentation</p>
+        <h2 id="pres-title">Un second cerveau pour le cabinet, pas un logiciel de plus.</h2>
+      </div>
+      <p>AppliCab rationalise la gestion des dossiers, de la prise de contact jusqu'à l'archivage, avec une visibilité sur toutes les étapes.</p>
+    </div>
+    <div class="bento">
+      <article class="card card--olive span-7 reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.5"/><circle cx="4.5" cy="12" r="1.5"/><circle cx="4.5" cy="18" r="1.5"/></svg></div>
+        <h3>Maîtrise complète des dossiers</h3>
+        <p>Adieu aux pense-bêtes et to-do lists éparpillés. Grâce au statut de chaque étape, vous savez exactement où vous en êtes pour chaque dossier et vous priorisez enfin votre travail de fond.</p>
+        <ul>
+          <li>Liste des étapes propre à chaque type de procédure</li>
+          <li>Statut, échéance et responsable pour chaque étape</li>
+          <li>Vue synthétique de tout le cabinet en un écran</li>
+        </ul>
+        <a class="link-arrow" href="fonctionnalites-tarifs.html#dossiers">Voir le suivi par étapes</a>
+      </article>
+      <article class="card span-5 reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Productivité et sérénité</h3>
+        <p>Calendrier intégré avec rappels automatiques : les délais de procédure et les rendez-vous se déclenchent depuis le dossier, sans double saisie.</p>
+        <a class="link-arrow" href="fonctionnalites-tarifs.html#agenda">Voir l'agenda</a>
+      </article>
+      <article class="card span-5 reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 14c2.2.6 3.5 2.4 3.5 6"/></svg></div>
+        <h3>Relation client apaisée</h3>
+        <p>Montrez votre implication : agenda partagé pour informer le client, messagerie via AppliCab pour une traçabilité sans faille des échanges.</p>
+        <a class="link-arrow" href="fonctionnalites-tarifs.html#client">Voir l'espace client</a>
+      </article>
+      <article class="card card--leaf span-7 reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <h3>Moins d'efforts, plus d'efficacité</h3>
+        <p>Traiter des e-mails avec le client, les confrères, les huissiers, les experts fait partie de votre quotidien. Épargnez-vous un travail d'écriture chronophage grâce aux mails déjà préparés par nos soins, prêts à être envoyés en deux clics à chaque étape.</p>
+        <a class="link-arrow" href="fonctionnalites-tarifs.html#messagerie">Voir les modèles de messages</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FONCTIONNALITÉS + VIDÉO (bloc "applicab/fonctionnalites-apercu") ======================= -->
+<section class="section section--paper" id="fonctionnalites" aria-labelledby="feat-title">
+  <div class="container">
+    <div class="bento" style="align-items:center">
+      <div class="span-5">
+        <p class="eyebrow">Fonctionnalités</p>
+        <h2 id="feat-title">Comment et pourquoi AppliCab est votre « second cerveau ».</h2>
+        <ul class="checks" style="margin-top:1.5rem">
+          <li><span>Une <strong>vision synthétique</strong> de tous les dossiers en cours</span></li>
+          <li><span>Une <strong>liste des étapes</strong> pour chaque dossier, selon la procédure</span></li>
+          <li><span>Une <strong>interface dédiée</strong> pour le client</span></li>
+          <li><span>Des <strong>statuts</strong> pour chaque étape de la procédure</span></li>
+          <li><span>Des <strong>modèles de messages</strong> prêts à envoyer à chaque étape</span></li>
+        </ul>
+        <div class="btn-row" style="margin-top:2rem">
+          <a class="btn btn--ink" href="fonctionnalites-tarifs.html">Toutes les fonctionnalités</a>
+          <a class="link-arrow" href="https://www.youtube.com/@applicabavocats" rel="noopener">La chaîne YouTube</a>
+        </div>
+      </div>
+      <div class="span-7">
+        <button class="video-facade" type="button" data-video="VIDEO_ID_A_REMPLACER" data-title="Présentation d'AppliCab Avocats en 2 minutes" aria-label="Lire la vidéo de présentation d'AppliCab (2 min)">
+          <span class="video-facade__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+          <span class="video-facade__label">Présentation en 2 min</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= COMMENT DIGITALISER (bloc "applicab/etapes", extractible) ======================= -->
+<section class="section" id="digitaliser" aria-labelledby="digi-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Méthode</p>
+        <h2 id="digi-title">Comment digitaliser la gestion d'un cabinet d'avocats ?</h2>
+      </div>
+      <p>Digitaliser un cabinet d'avocats consiste à centraliser dossiers, échéances et échanges clients dans un outil unique, en quatre étapes, sans interrompre l'activité.</p>
+    </div>
+    <ol class="steps">
+      <li class="step reveal"><h3>Cartographier les procédures</h3><p>Lister, pour chaque type de dossier (divorce, licenciement, recouvrement, cession…), les étapes et les délais qui reviennent toujours. AppliCab fournit des modèles d'étapes par matière que vous adaptez.</p></li>
+      <li class="step reveal"><h3>Centraliser les dossiers et l'agenda</h3><p>Créer chaque dossier avec son client, ses étapes et ses échéances. Les rappels automatiques remplacent les pense-bêtes et sécurisent les délais.</p></li>
+      <li class="step reveal"><h3>Ouvrir un espace au client</h3><p>Donner au client un accès dédié pour consulter l'avancement, les rendez-vous et les messages : moins d'appels « où en est-on ? », plus de confiance.</p></li>
+      <li class="step reveal"><h3>Automatiser les écrits récurrents</h3><p>Utiliser des modèles de courriers et d'e-mails rattachés à chaque étape, envoyés en deux clics, pour gagner environ une heure par jour de rédaction.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= CAS D'USAGE (bloc "applicab/cas-usage") ======================= -->
+<section class="section section--dark" aria-labelledby="usage-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Cas d'usage</p>
+      <h2 id="usage-title">Aussi efficace en conseil qu'en contentieux.</h2>
+    </div>
+    <div class="bento">
+      <article class="card card--olive span-4 reveal" style="background:rgba(255,255,255,.06)">
+        <h3>Contentieux</h3>
+        <p>Assignation, mise en état, audience, délibéré, voies de recours : chaque étape a son statut, son délai et son courrier type. Les délais de procédure se calculent depuis le dossier.</p>
+      </article>
+      <article class="card card--olive span-4 reveal" style="background:rgba(255,255,255,.06)">
+        <h3>Conseil et droit des affaires</h3>
+        <p>Rédaction d'actes, pactes, cessions, secrétariat juridique : suivez les versions, les validations du client et les échéances contractuelles sans tableur parallèle.</p>
+      </article>
+      <article class="card card--olive span-4 reveal" style="background:rgba(255,255,255,.06)">
+        <h3>Jeune avocat et installation</h3>
+        <p>Démarrez avec des procédures déjà modélisées, un tarif « jeune avocat » à 39 € HT pendant 12 mois, et une image professionnelle dès le premier client.</p>
+      </article>
+    </div>
+    <p style="margin-top:2rem"><a class="link-arrow" href="fonctionnalites-tarifs.html#cas-usage">Tous les cas d'usage détaillés</a></p>
+  </div>
+</section>
+
+<!-- ======================= NOTRE HISTOIRE (bloc "applicab/frise", champs ACF répéteur) ======================= -->
+<section class="section" id="histoire" aria-labelledby="hist-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">À propos</p>
+        <h2 id="hist-title">Notre histoire : un outil né dans un cabinet.</h2>
+      </div>
+      <p>AppliCab n'a pas été conçu dans une start-up, mais à la table d'un cabinet d'avocats qui cherchait à ne plus rien oublier.</p>
+    </div>
+    <ol class="timeline">
+      <li><time datetime="2017">2017</time><h3>Développement de la V1</h3><p>Pour le cabinet SOUSSENS AVOCAT, qui l'utilise au quotidien.</p></li>
+      <li><time datetime="2021">2021</time><h3>Prix de l'innovation Gastineau</h3><p>Décerné par l'Incubateur AvocatsLab'92.</p></li>
+      <li><time datetime="2024">2024</time><h3>Déploiement de la V3 d'AppliCab</h3><p>Nouvelle interface, espace client et modèles de messages.</p></li>
+      <li><time datetime="2024">2024</time><h3>Prix « Créatrice d'avenir »</h3><p>Catégorie Innovation, Jury parisien, PIE.</p></li>
+      <li class="is-now"><time>Aujourd'hui</time><h3>Enrichie en continu</h3><p>L'application évolue selon les besoins de nos utilisateur·ice·s.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= TARIFS (bloc "applicab/tarifs", synchronisé avec la page Fonctionnalités) ======================= -->
+<section class="section section--band" id="tarifs" aria-labelledby="price-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Tarifs</p>
+        <h2 id="price-title">Un prix simple, par utilisateur, sans engagement.</h2>
+      </div>
+      <p>Tout est inclus : mises à jour, hébergement en France, accompagnement à la prise en main.</p>
+    </div>
+    <div class="pricing">
+      <article class="plan">
+        <p class="plan__tag">Abonnement standard</p>
+        <p class="plan__price">59 € <small>HT / utilisateur / mois</small></p>
+        <ul class="checks">
+          <li>Toutes les fonctionnalités</li>
+          <li>Utilisateurs illimités dans le cabinet (facturés à l'unité)</li>
+          <li>Espace client inclus</li>
+        </ul>
+        <a class="btn btn--primary" href="#essai">Découvrir AppliCab gratuitement</a>
+      </article>
+      <article class="plan plan--featured">
+        <p class="plan__tag">Abonnement « jeune avocat »</p>
+        <p class="plan__price">39 € <small>HT / mois pendant 12 mois</small></p>
+        <ul class="checks">
+          <li>Prestation de serment ou installation datant de moins de 2 ans</li>
+          <li>Toutes les fonctionnalités, mêmes services</li>
+          <li>Passage au tarif standard après 12 mois</li>
+        </ul>
+        <a class="btn btn--light" href="#essai">Démarrer au tarif jeune avocat</a>
+      </article>
+      <article class="plan plan--conditions">
+        <p class="plan__tag">Conditions</p>
+        <ul class="checks">
+          <li>Pas d'engagement de durée</li>
+          <li>0 frais d'installation</li>
+          <li>0 frais de formation</li>
+          <li>Résiliation à tout moment, export de vos données</li>
+        </ul>
+        <a class="link-arrow" href="fonctionnalites-tarifs.html#tarifs">Détail des tarifs et FAQ</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ (bloc "applicab/faq" → génère le JSON-LD FAQPage) ======================= -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Questions fréquentes</p>
+      <h2 id="faq-title">Les questions que se posent les cabinets avant de choisir.</h2>
+    </div>
+    <div class="faq measure">
+    <details open>
+      <summary>Qu'est-ce qu'AppliCab Avocats ?</summary>
+      <div><p>AppliCab Avocats est un logiciel de gestion de cabinet d'avocats, accessible en ligne, qui centralise le suivi des dossiers, les étapes de procédure, l'agenda, la relation client et les modèles de courriers. Il est conçu par des avocats, pour des avocats, et fonctionne aussi bien en conseil qu'en contentieux.</p></div>
+    </details>
+    <details>
+      <summary>Combien coûte AppliCab ?</summary>
+      <div><p>L'abonnement standard à AppliCab coûte 59 € HT par mois et par utilisateur, sans engagement de durée. Les avocats installés ou ayant prêté serment depuis moins de deux ans bénéficient d'un tarif « jeune avocat » à 39 € HT par mois pendant douze mois. Il n'y a ni frais d'installation ni frais de formation.</p></div>
+    </details>
+    <details>
+      <summary>Puis-je tester AppliCab gratuitement ?</summary>
+      <div><p>Oui. AppliCab propose un essai gratuit sans carte bancaire, avec l'ensemble des fonctionnalités et un accompagnement à la prise en main. Vous pouvez ensuite souscrire ou arrêter librement.</p></div>
+    </details>
+    <details>
+      <summary>AppliCab convient-il à un avocat qui exerce seul ?</summary>
+      <div><p>Oui. AppliCab est utilisé par des avocats individuels comme par des cabinets de plusieurs associés et collaborateurs. L'abonnement mensuel par utilisateur, sans engagement, permet de démarrer seul et d'ajouter des comptes au fur et à mesure.</p></div>
+    </details>
+    <details>
+      <summary>Mes données et celles de mes clients sont-elles protégées ?</summary>
+      <div><p>Les données AppliCab sont hébergées en France chez un hébergeur certifié, chiffrées en transit, sauvegardées quotidiennement et accessibles uniquement par les utilisateurs habilités du cabinet. Le traitement respecte le RGPD et le secret professionnel de l'avocat.</p></div>
+    </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BLOG (requête WP_Query des 3 derniers articles) ======================= -->
+<section class="section section--paper" id="blog" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Blog</p>
+        <h2 id="blog-title">Organisation, facturation, innovation : le blog des cabinets.</h2>
+      </div>
+      <p><a class="link-arrow" href="blog/article.html">Tous les articles</a></p>
+    </div>
+    <div class="posts">
+      <article class="post-card reveal">
+        <div class="post-card__media" aria-hidden="true"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3c5.5 0 8 8 10.2 15 3.4 9.8 2.6 19-10.2 19S6.4 27.8 9.8 18C12 11 14.5 3 20 3z" fill="#5B7A1F"/><path d="M20 3c5.5 0 8 8 10.2 15l-10.2 3z" fill="#DCCB4F"/><path d="M9.8 18C12 11 14.5 3 20 3v18z" fill="#3D5516"/><path d="M20 21l10.2-3c3.4 9.8 2.6 19-10.2 19z" fill="#A9C24A"/><ellipse cx="20" cy="27" rx="5" ry="5.8" fill="#A4492F"/></svg></div>
+        <div class="post-card__body">
+          <p class="post-card__meta"><span>Organisation</span> · <time datetime="2026-06-12">12 juin 2026</time></p>
+          <h3><a href="blog/article.html">L'organisation du cabinet d'avocat : comment l'automatisation vous fait gagner 1 heure par jour</a></h3>
+          <p>Modèles de courriers, rappels d'échéances, espace client : où se cache l'heure perdue chaque jour, et comment la récupérer.</p>
+          <a class="link-arrow" href="blog/article.html">Lire l'article</a>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-card__media" aria-hidden="true"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3c5.5 0 8 8 10.2 15 3.4 9.8 2.6 19-10.2 19S6.4 27.8 9.8 18C12 11 14.5 3 20 3z" fill="#5B7A1F"/><path d="M20 3c5.5 0 8 8 10.2 15l-10.2 3z" fill="#DCCB4F"/><path d="M9.8 18C12 11 14.5 3 20 3v18z" fill="#3D5516"/><path d="M20 21l10.2-3c3.4 9.8 2.6 19-10.2 19z" fill="#A9C24A"/><ellipse cx="20" cy="27" rx="5" ry="5.8" fill="#A4492F"/></svg></div>
+        <div class="post-card__body">
+          <p class="post-card__meta"><span>Facturation</span> · <time datetime="2026-04-03">3 avril 2026</time></p>
+          <h3><a href="blog/article.html">Le Guide Anti-Impayés pour Avocats</a></h3>
+          <p>De la convention d'honoraires au recouvrement : les bons réflexes pour éviter les impayés et les traiter sans abîmer la relation client.</p>
+          <a class="link-arrow" href="blog/article.html">Lire l'article</a>
+        </div>
+      </article>
+      <article class="post-card reveal">
+        <div class="post-card__media" aria-hidden="true"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3c5.5 0 8 8 10.2 15 3.4 9.8 2.6 19-10.2 19S6.4 27.8 9.8 18C12 11 14.5 3 20 3z" fill="#5B7A1F"/><path d="M20 3c5.5 0 8 8 10.2 15l-10.2 3z" fill="#DCCB4F"/><path d="M9.8 18C12 11 14.5 3 20 3v18z" fill="#3D5516"/><path d="M20 21l10.2-3c3.4 9.8 2.6 19-10.2 19z" fill="#A9C24A"/><ellipse cx="20" cy="27" rx="5" ry="5.8" fill="#A4492F"/></svg></div>
+        <div class="post-card__body">
+          <p class="post-card__meta"><span>Pilotage</span> · <time datetime="2026-02-17">17 février 2026</time></p>
+          <h3><a href="blog/article.html">Les KPI, ça vous parle ?</a></h3>
+          <p>Pourquoi quelques indicateurs bien choisis suffisent à piloter un cabinet, et lesquels suivre chaque mois.</p>
+          <a class="link-arrow" href="blog/article.html">Lire l'article</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="cta-band" id="essai" aria-labelledby="cta-title">
+  <div class="container">
+    <p class="eyebrow">Sans engagement · sans frais d'installation</p>
+    <h2 id="cta-title">Testez AppliCab sur vos vrais dossiers, gratuitement.</h2>
+    <p>Un compte d'essai complet, une prise en main de 20 minutes avec l'équipe, et vos données importées si vous continuez. Vous jugez sur pièces.</p>
+    <div class="btn-row">
+      <a class="btn btn--light btn--lg" href="#acces-application"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Découvrir AppliCab gratuitement</a>
+      <a class="btn btn--outline-light btn--lg" href="index.html#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Demander une démo</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="newsletter">
+        <h2>Lettre mensuelle</h2>
+        <p>AppliCab Avocats utilise les informations de ce formulaire pour vous envoyer une newsletter mensuelle. Vos données ne sont pas transmises à des tiers.</p>
+        <form action="#" method="post" novalidate>
+          <label for="nl-email">Adresse e-mail <span aria-hidden="true">*</span></label>
+          <input type="email" id="nl-email" name="email" autocomplete="email" required placeholder="prenom@cabinet.fr">
+          <button class="btn btn--ink" type="submit">M'abonner</button>
+          <small>En vous abonnant vous acceptez nos <a href="#mentions-legales">mentions légales</a>. Désinscription en un clic.</small>
+          <p class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <nav aria-labelledby="ft-site">
+        <h2 id="ft-site">Plan du site</h2>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#presentation">Présentation</a></li>
+          <li><a href="fonctionnalites-tarifs.html">Fonctionnalités &amp; tarifs</a></li>
+          <li><a href="fonctionnalites-tarifs.html#cas-usage">Cas d'usage</a></li>
+          <li><a href="index.html#histoire">À propos</a></li>
+          <li><a href="blog/article.html">Blog</a></li>
+          <li><a href="#acces-application" rel="nofollow">Accès à l'application</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="ft-legal">
+        <h2 id="ft-legal">Liens utiles</h2>
+        <ul>
+          <li><a href="#mentions-legales">Mentions légales</a></li>
+          <li><a href="#cookies">Politique de cookies</a></li>
+          <li><a href="llms.txt">llms.txt</a></li>
+          <li><a href="#rgpd">Données personnelles (RGPD)</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <p>Pour tout type de demande :<br><a href="mailto:contact@applicab-avocats.com">contact@applicab-avocats.com</a></p>
+        <ul class="socials" aria-label="Réseaux sociaux">
+          <li><a href="#" aria-label="AppliCab sur LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 8.5h-3V20h3zM5 4a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 5 4zm15.5 9.2c0-3-1.6-4.9-4.4-4.9-1.6 0-2.7.9-3.2 1.7V8.5H9.9V20h3V14c0-1.6.6-2.7 2.1-2.7 1.4 0 1.9 1 1.9 2.7V20h3z"/></svg></a></li>
+          <li><a href="#" aria-label="AppliCab sur Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg></a></li>
+          <li><a href="#" aria-label="AppliCab sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+          <li><a href="#" aria-label="Chaîne YouTube AppliCab Avocats"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><strong>AppliCab Avocats © 2026</strong> — Plateforme de suivi des dossiers et de gestion du cabinet, pensée par des avocats pour des avocats.</p>
+      <p>Prix de l'innovation Gastineau 2021 · Prix « Créatrice d'avenir » 2024</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
