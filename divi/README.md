@@ -2,7 +2,8 @@
 
 Extraits autonomes de la maquette v2, à coller dans un module **Code** Divi en attendant le thème sur-mesure.
 
-- `section-tarifs.html` — section Tarifs (3 cartes + note). HTML + CSS préfixés `.ac-`, aucun JavaScript.
+- `section-tarifs-police-divi.html` — **recommandé** : section Tarifs (3 cartes + note) qui hérite de la police réglée dans Divi (Open Sans par défaut). Aucune police importée.
+- `section-tarifs.html` — même section avec les polices de la maquette (Plus Jakarta Sans + DM Sans, importées depuis Google Fonts).
 
 Mode d'emploi : Divi Builder → ajouter une **ligne pleine largeur** → module **Code** → coller tout le contenu du fichier
 (`<style>` compris) → enregistrer. Ne pas utiliser un module Texte, qui réécrit le HTML.
