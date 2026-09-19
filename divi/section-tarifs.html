@@ -1,0 +1,116 @@
+<!-- ============================================================
+     AppliCab Avocats — Section Tarifs (maquette v2)
+     À coller dans un module « Code » Divi (pas un module Texte).
+     Tout est autonome : HTML + CSS préfixés .ac-tarifs, aucun JS.
+     ============================================================ -->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap");
+
+.ac-tarifs, .ac-tarifs * { box-sizing: border-box; }
+.ac-tarifs {
+  --ac-forest: #14210E; --ac-olive: #5B7A1F; --ac-olive-600: #4A6519; --ac-olive-100: #EDF3DC;
+  --ac-lime: #B9D94A; --ac-lime-300: #D6EA8A; --ac-sand: #F6F3EB; --ac-ink: #171C12; --ac-ink-2: #5C6354;
+  --ac-line: #E5E7DD; --ac-display: "Plus Jakarta Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ac-body: "DM Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--ac-body); color: var(--ac-ink); line-height: 1.6; font-size: 17px;
+  padding: clamp(3rem, 2rem + 4vw, 6rem) 0;
+}
+.ac-tarifs p, .ac-tarifs ul, .ac-tarifs h2, .ac-tarifs h3 { margin: 0; padding: 0; }
+.ac-tarifs ul { list-style: none; }
+.ac-tarifs__inner { width: min(100% - 2rem, 78rem); margin: 0 auto; }
+
+/* En-tête de section */
+.ac-tarifs__head { text-align: center; max-width: 52rem; margin: 0 auto 3rem; }
+.ac-tarifs__eyebrow { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .8rem; border-radius: 999px; background: var(--ac-olive-100); color: var(--ac-olive-600); font: 600 13px/1 var(--ac-display); }
+.ac-tarifs__eyebrow::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--ac-olive); }
+.ac-tarifs__head h2 { margin-top: 1rem; font: 800 clamp(1.9rem, 1.2rem + 2.2vw, 3rem)/1.1 var(--ac-display); letter-spacing: -.03em; color: var(--ac-ink); }
+.ac-tarifs__head p { margin: 1rem auto 0; color: var(--ac-ink-2); font-size: 1.25rem; line-height: 1.5; max-width: 44ch; }
+
+/* Grille des offres */
+.ac-tarifs__grid { display: grid; gap: 1.5rem; align-items: stretch; }
+@media (min-width: 900px) { .ac-tarifs__grid { grid-template-columns: repeat(3, 1fr); } }
+.ac-plan { position: relative; display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; background: #fff; border: 1px solid var(--ac-line); border-radius: 22px; }
+.ac-plan--featured { background: var(--ac-forest); color: #E4E9DA; border-color: transparent; box-shadow: 0 30px 80px -30px rgba(23,28,18,.35); }
+.ac-plan--conditions { background: var(--ac-sand); border-color: transparent; }
+.ac-plan__tag { position: absolute; top: -.8rem; left: 2rem; padding: .4rem .7rem; border-radius: 999px; background: var(--ac-lime); color: var(--ac-forest); font: 700 13px/1 var(--ac-display); }
+.ac-plan__name { font: 700 1.25rem/1.3 var(--ac-display); color: var(--ac-ink); }
+.ac-plan--featured .ac-plan__name { color: #fff; }
+.ac-plan__desc { color: var(--ac-ink-2); font-size: 15px; }
+.ac-plan--featured .ac-plan__desc { color: #D6DCCB; }
+.ac-plan__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: .35rem; font: 800 3.2rem/1 var(--ac-display); letter-spacing: -.04em; color: var(--ac-ink); font-variant-numeric: tabular-nums; }
+.ac-plan__price small { font: 500 15px/1.4 var(--ac-body); color: var(--ac-ink-2); letter-spacing: 0; }
+.ac-plan--featured .ac-plan__price, .ac-plan--featured strong { color: #fff; }
+.ac-plan--featured .ac-plan__price small { color: #D6DCCB; }
+
+/* Liste à coches */
+.ac-checks { display: grid; gap: .6rem; font-size: 15px; }
+.ac-checks li { display: flex; gap: .7rem; align-items: flex-start; }
+.ac-plan--featured .ac-checks li { color: #D6DCCB; }
+.ac-checks li::before { content: ""; flex: none; width: 1.3rem; height: 1.3rem; margin-top: .15rem; border-radius: 50%; background: var(--ac-olive-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%234A6519' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7'/%3E%3C/svg%3E") center/62% no-repeat; }
+.ac-plan--featured .ac-checks li::before { background-color: rgba(185,217,74,.18); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23B9D94A' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7'/%3E%3C/svg%3E"); }
+
+/* Boutons */
+.ac-btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; margin-top: auto; padding: .85rem 1.3rem; border-radius: 999px; border: 1.5px solid transparent; font: 600 15px/1.2 var(--ac-display); text-decoration: none !important; cursor: pointer; transition: background-color .18s, transform .18s; }
+.ac-btn:hover { transform: translateY(-2px); }
+.ac-btn--primary { background: var(--ac-olive); color: #fff !important; box-shadow: 0 8px 20px -10px rgba(91,122,31,.7); }
+.ac-btn--primary:hover { background: var(--ac-olive-600); }
+.ac-btn--lime { background: var(--ac-lime); color: var(--ac-forest) !important; }
+.ac-btn--lime:hover { background: var(--ac-lime-300); }
+.ac-btn svg { width: 1.05em; height: 1.05em; flex: none; }
+.ac-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: auto; font: 600 15px/1.2 var(--ac-display); color: var(--ac-olive-600) !important; text-decoration: none !important; }
+.ac-link::after { content: "→"; }
+.ac-tarifs__note { margin-top: 2rem; text-align: center; color: var(--ac-ink-2); font-size: 15px; }
+.ac-tarifs__note a { color: var(--ac-olive-600); }
+</style>
+
+<section class="ac-tarifs" id="tarifs" aria-labelledby="ac-tarifs-title">
+  <div class="ac-tarifs__inner">
+    <div class="ac-tarifs__head">
+      <span class="ac-tarifs__eyebrow">Tarifs</span>
+      <h2 id="ac-tarifs-title">Un prix simple, par utilisateur, sans engagement.</h2>
+      <p>Toutes les fonctionnalités dans chaque abonnement. Aucun frais caché.</p>
+    </div>
+
+    <div class="ac-tarifs__grid">
+      <article class="ac-plan">
+        <p class="ac-plan__name">Abonnement standard</p>
+        <p class="ac-plan__desc">Pour tout avocat ou cabinet, quelle que soit la matière.</p>
+        <p class="ac-plan__price">59 €<small>HT / utilisateur / mois</small></p>
+        <ul class="ac-checks">
+          <li>Toutes les fonctionnalités</li>
+          <li>Utilisateurs illimités, facturés à l'unité</li>
+          <li>Support par e-mail et visio</li>
+        </ul>
+        <a class="ac-btn ac-btn--primary" href="https://app.applicab-avocats.com/inscription">Découvrir AppliCab gratuitement <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="ac-plan ac-plan--featured" id="jeune-avocat">
+        <span class="ac-plan__tag">Jeune avocat·e</span>
+        <p class="ac-plan__name">Abonnement « jeune avocat »</p>
+        <p class="ac-plan__desc">Prestation de serment ou installation datant de moins de 2 ans.</p>
+        <p class="ac-plan__price">39 €<small>HT / mois pendant 12 mois</small></p>
+        <ul class="ac-checks">
+          <li>Toutes les fonctionnalités</li>
+          <li>Puis 59 € HT/mois, toujours sans engagement</li>
+          <li>Accompagnement à l'installation</li>
+        </ul>
+        <a class="ac-btn ac-btn--lime" href="https://app.applicab-avocats.com/inscription">Commencer l'essai gratuit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="ac-plan ac-plan--conditions">
+        <p class="ac-plan__name">Inclus dans chaque abonnement</p>
+        <ul class="ac-checks">
+          <li>Pas d'engagement de durée</li>
+          <li>0 frais d'installation</li>
+          <li>0 frais de formation</li>
+          <li>Essai gratuit sans carte bancaire</li>
+          <li>Export de vos données à tout moment</li>
+          <li>Hébergement en France, RGPD</li>
+        </ul>
+        <a class="ac-link" href="/tarifs/">Comparer en détail</a>
+      </article>
+    </div>
+
+    <p class="ac-tarifs__note">Prix hors taxes. Facturation mensuelle par utilisateur actif. Une question ? <a href="mailto:contact@applicab-avocats.com">Écrivez-nous</a>.</p>
+  </div>
+</section>
